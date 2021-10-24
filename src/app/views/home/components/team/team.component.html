@@ -1,1 +1,27 @@
-<p>team works!</p>
+<div class="container py-4">
+  <div class="row">
+    <div class="col text-center" *ngFor="let member of members">
+      <!-- TODO colocar as imagens -->
+      <img
+        *ngIf="member"
+        src="${{ member.img }}"
+        class="rounded-circle"
+        alt="members"
+        width="140"
+        height="140"
+      />
+      <p class="h5 fw-light my-2" style="color: #5d5360">
+        {{ member.name }} {{ member.lastname }}
+      </p>
+      <!-- TODO colocar os links -->
+      <div class="text-center">
+        <a class="mx-2" href="#">
+          <i class="fab fa-github-square h2" style="color: #662386"></i>
+        </a>
+        <a class="mx-2" href="#">
+          <i class="fab fa-linkedin h2" style="color: #662386"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
