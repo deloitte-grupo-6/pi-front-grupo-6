@@ -1,0 +1,20 @@
+.about-container{
+    background-color: #F6E7FF;
+    display: flex;
+    justify-content: space-around;
+
+    background: #ddb5f5;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.about-container p{
+    width: 40%;
+    padding: 15px;
+    align-self: center;
+}
+
+.about-container img{
+    width: 40%;
+    padding: 15px;
+}

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  booleanCadastrar: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  modalCadastrar(){
+    this.booleanCadastrar = true;
   }
 
 }
