@@ -3,19 +3,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
+  @Output() showRegisterModal = new EventEmitter();
+  @Output() showLoginModal = new EventEmitter();
 
-  @Output() onCreateUsuario = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onRegisterClick() {
+    this.showRegisterModal.emit();
   }
 
-  mostrarModalCadastrar(){
-    this.onCreateUsuario.emit();
+  onLoginClick() {
+    this.showLoginModal.emit();
   }
-
 }

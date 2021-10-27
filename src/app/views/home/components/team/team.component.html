@@ -1,3 +1,4 @@
+<div class="espaco"></div>
 <div class="container py-4">
   <div class="row">
     <div class="col text-center" *ngFor="let member of members">
@@ -8,10 +9,10 @@
       </p>
       <!-- TODO colocar os links -->
       <div class="text-center">
-        <a class="mx-2" href="#">
+        <a class="mx-2" href={{member.gitUrl}} target="_blank">
           <i class="fab fa-github-square h2" style="color: #000000"></i>
         </a>
-        <a class="mx-2" href="#">
+        <a class="mx-2" href={{member.linkedinUrl}} target="_blank">
           <i class="fab fa-linkedin h2" style="color: #2867B2"></i>
         </a>
       </div>
