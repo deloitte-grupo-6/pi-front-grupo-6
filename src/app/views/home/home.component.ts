@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     this.booleanCadastrar = true;
   }
 
+  CancelModal(){
+    this.booleanCadastrar = false;
+  }
+
 }

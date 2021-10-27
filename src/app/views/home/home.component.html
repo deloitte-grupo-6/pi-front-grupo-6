@@ -1,6 +1,6 @@
 <app-nav-bar (onCreateUsuario)="modalCadastrar()"></app-nav-bar>
 <div class="container py-5" id="main-container">
-  <app-register *ngIf="booleanCadastrar"></app-register>
+  <app-register (ModalCancel)="CancelModal()" *ngIf="booleanCadastrar"></app-register>
   <app-about></app-about>
   <app-category></app-category>
   <app-team></app-team>
