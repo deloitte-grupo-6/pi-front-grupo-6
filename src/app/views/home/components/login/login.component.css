@@ -13,6 +13,12 @@
   transition: opacity 3s linear;
 }
 
+h4{
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
 #form-container form {
   background-color: #a2e7d8;
   padding: 40px;

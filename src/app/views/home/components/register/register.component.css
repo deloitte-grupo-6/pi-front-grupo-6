@@ -13,9 +13,16 @@
   transition: opacity 3s linear;
 }
 
+h4{
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
 #form-container form {
-  background-color: #a2e7d8;
-  padding: 40px;
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
   box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
   width: 400px;
   border-radius: 10px;
@@ -41,7 +48,7 @@
 #form-container form .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 0;
 }
 

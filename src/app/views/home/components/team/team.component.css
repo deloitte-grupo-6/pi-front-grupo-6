@@ -2,6 +2,9 @@ img {
   background-color: #cdf0ea;
 }
 
-.espaco {
-  margin: 60px;
+.categoria {
+  font-size: 30px;
+  color: rgb(109, 54, 161);
+  padding-top: 60px;
+  text-align: center;
 }
