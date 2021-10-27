@@ -10,6 +10,8 @@ import { AdoptionComponent } from './views/adoption/adoption.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { RegisterComponent } from './views/home/components/register/register.component';
+import { LoginComponent } from './views/home/components/login/login.component';
+import { BannerComponent } from './views/home/components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RegisterComponent } from './views/home/components/register/register.com
     AdoptionComponent,
     FooterComponent,
     NavBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule

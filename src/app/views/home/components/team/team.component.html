@@ -1,25 +1,19 @@
+<div class="espaco"></div>
 <div class="container py-4">
   <div class="row">
     <div class="col text-center" *ngFor="let member of members">
       <!-- TODO colocar as imagens -->
-      <img
-        *ngIf="member"
-        src="${{ member.img }}"
-        class="rounded-circle"
-        alt="members"
-        width="140"
-        height="140"
-      />
+      <img *ngIf="member" src="${{ member.img }}" class="rounded-circle" alt="members" width="140" height="140" />
       <p class="h5 fw-light my-2" style="color: #5d5360">
         {{ member.name }} {{ member.lastname }}
       </p>
       <!-- TODO colocar os links -->
       <div class="text-center">
-        <a class="mx-2" href="#">
-          <i class="fab fa-github-square h2" style="color: #662386"></i>
+        <a class="mx-2" href={{member.gitUrl}} target="_blank">
+          <i class="fab fa-github-square h2" style="color: #000000"></i>
         </a>
-        <a class="mx-2" href="#">
-          <i class="fab fa-linkedin h2" style="color: #662386"></i>
+        <a class="mx-2" href={{member.linkedinUrl}} target="_blank">
+          <i class="fab fa-linkedin h2" style="color: #2867B2"></i>
         </a>
       </div>
     </div>

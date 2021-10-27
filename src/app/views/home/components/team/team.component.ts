@@ -11,26 +11,37 @@ export class TeamComponent implements OnInit {
       name: 'Gabriela',
       lastname: 'Vespoli',
       img: '../../../../../assets/images/woman.png',
+      gitUrl: 'https://github.com/gabihvespoli',
+      linkedinUrl: 'https://www.linkedin.com/in/gabihvespoli/',
     },
     {
       name: 'Hugo',
       lastname: 'Quadros',
       img: '../../../../../assets/images/man.png',
+      gitUrl: 'https://github.com/HugoQuadros',
+      linkedinUrl: 'https://www.linkedin.com/in/hugo-quadros/',
     },
     {
       name: 'Leandro',
       lastname: 'M. C.',
       img: '../../../../../assets/images/man.png',
+      gitUrl: 'https://github.com/LeandroMC',
+      linkedinUrl: 'https://www.linkedin.com/in/lmcarneiro/',
     },
     {
       name: 'Patricia',
       lastname: 'Miyazaki',
       img: '../../../../../assets/images/woman.png',
+      gitUrl: 'https://github.com/pmiyazaki',
+      linkedinUrl:
+        'https://www.linkedin.com/in/patr%C3%ADcia-tamy-miyazaki-44a4a031/?originalSubdomain=br',
     },
     {
       name: 'Rafael',
       lastname: 'Gonzaga',
       img: '../../../../../assets/images/man.png',
+      gitUrl: 'https://github.com/rafagonzaga',
+      linkedinUrl: 'https://www.linkedin.com/in/rafa-gonzaga/',
     },
   ];
 
