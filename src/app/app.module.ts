@@ -9,6 +9,7 @@ import { TeamComponent } from './views/home/components/team/team.component';
 import { AdoptionComponent } from './views/adoption/adoption.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { RegisterComponent } from './views/home/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
     TeamComponent,
     AdoptionComponent,
     FooterComponent,
-    NavBarComponent
+    NavBarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule
