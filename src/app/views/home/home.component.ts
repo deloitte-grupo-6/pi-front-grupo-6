@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   booleanRegister: boolean = false;
   booleanLogin: boolean = false;
+  booleanDogList: boolean = false;
+  booleanCatList: boolean = false;
+  booleanOtherList: boolean = false;
 
   constructor() {}
 
@@ -27,5 +30,17 @@ export class HomeComponent implements OnInit {
 
   cancelModalLogin() {
     this.booleanLogin = false;
+  }
+
+  showingDList() {
+    this.booleanDogList = true;
+  }
+
+  showingCList() {
+    this.booleanCatList = true;
+  }
+
+  showingOList() {
+    this.booleanOtherList = true;
   }
 }

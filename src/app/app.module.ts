@@ -12,6 +12,9 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { RegisterComponent } from './views/home/components/register/register.component';
 import { LoginComponent } from './views/home/components/login/login.component';
 import { BannerComponent } from './views/home/components/banner/banner.component';
+import { DogListComponent } from './views/home/components/dog-list/dog-list.component';
+import { CatListComponent } from './views/home/components/cat-list/cat-list.component';
+import { OtherListComponent } from './views/home/components/other-list/other-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { BannerComponent } from './views/home/components/banner/banner.component
     NavBarComponent,
     RegisterComponent,
     LoginComponent,
-    BannerComponent
+    BannerComponent,
+    DogListComponent,
+    CatListComponent,
+    OtherListComponent
   ],
   imports: [
     BrowserModule

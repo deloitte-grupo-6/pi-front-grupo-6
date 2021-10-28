@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-category',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit {
+  @Output() dogList = new EventEmitter();
+  @Output() catList = new EventEmitter();
+  @Output() otherList = new EventEmitter();
+
   categoryData = [
     {
       type: 'Cachorro',
@@ -24,4 +28,16 @@ export class CategoryComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  showList(animal) {
+    if (animal == 'Cachorro') {
+      this.dogList.emit();
+    }
+    if (animal == 'Gato') {
+      this.catList.emit();
+    }
+    if (animal == 'Outros') {
+      this.otherList.emit();
+    }
+  }
 }
