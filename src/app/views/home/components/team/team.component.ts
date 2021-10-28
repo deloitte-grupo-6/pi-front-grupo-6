@@ -33,8 +33,7 @@ export class TeamComponent implements OnInit {
       lastname: 'Miyazaki',
       img: '../../../../../assets/images/woman.png',
       gitUrl: 'https://github.com/pmiyazaki',
-      linkedinUrl:
-        'https://www.linkedin.com/in/patr%C3%ADcia-tamy-miyazaki-44a4a031/?originalSubdomain=br',
+      linkedinUrl: 'https://www.linkedin.com/in/patricia-tamy-miyazaki/',
     },
     {
       name: 'Rafael',
