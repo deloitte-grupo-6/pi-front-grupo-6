@@ -33,14 +33,20 @@ export class HomeComponent implements OnInit {
   }
 
   showingDList() {
+    this.booleanCatList = false;
+    this.booleanOtherList = false;
     this.booleanDogList = true;
   }
 
   showingCList() {
+    this.booleanDogList = false;
+    this.booleanOtherList = false;
     this.booleanCatList = true;
   }
 
   showingOList() {
+    this.booleanCatList = false;
+    this.booleanDogList = false;
     this.booleanOtherList = true;
   }
 }
