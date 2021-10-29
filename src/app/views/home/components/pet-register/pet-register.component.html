@@ -1,0 +1,38 @@
+<div id="form-container">
+  <form>
+    <h4>CADASTRO DE PET</h4>
+    <label for="nome">
+      Nome
+      <input type="text" name="nome" id="nome" placeholder="Digite o nome do pet">
+    </label>
+    <label for="especie">Especie</label>
+    <select name="Especie">
+      <option value="CACHORRO">Cachorro</option>
+      <option value="GATO">Gato</option>
+      <option value="OUTROS">Outros</option>
+    </select>
+    <label for="raca">
+      Raça
+      <input type="text" name="raca" id="raca" placeholder="Digite a raça do pet">
+    </label>
+    <label for="sexo">Sexo</label>
+    <select name="Sexo">
+      <option value="MACHO">Macho</option>
+      <option value="FEMEA">Fêmea</option>
+      <option value="OUTRO">Outro</option>
+    </select>
+    <label for="nascimento">
+      Nascimento
+      <input type="date" name="nascimento" id="nascimento" placeholder="Digite a data de nascimento do pet">
+    </label>
+    <label for="descricao">Descrição</label>
+    <textarea type="text" name="descricao" id="descricao" placeholder="Escreva algo sobre o pet"></textarea>
+
+    <input id="choose" type="file">
+    <button class="submit" type="submit">Enviar</button>
+    <div class="buttons">
+      <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
+      <button type="button">Cadastrar</button>
+    </div>
+  </form>
+</div>

@@ -15,6 +15,7 @@ import { BannerComponent } from './views/home/components/banner/banner.component
 import { DogListComponent } from './views/home/components/dog-list/dog-list.component';
 import { CatListComponent } from './views/home/components/cat-list/cat-list.component';
 import { OtherListComponent } from './views/home/components/other-list/other-list.component';
+import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OtherListComponent } from './views/home/components/other-list/other-lis
     BannerComponent,
     DogListComponent,
     CatListComponent,
-    OtherListComponent
+    OtherListComponent,
+    PetRegisterComponent
   ],
   imports: [
     BrowserModule
