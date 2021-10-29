@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Pet } from '../../interfaces/pet';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-category',
@@ -9,6 +11,7 @@ export class CategoryComponent implements OnInit {
   @Output() dogList = new EventEmitter();
   @Output() catList = new EventEmitter();
   @Output() otherList = new EventEmitter();
+  
 
   categoryData = [
     {
@@ -25,7 +28,7 @@ export class CategoryComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {}
 
@@ -39,5 +42,22 @@ export class CategoryComponent implements OnInit {
     if (animal == 'Outros') {
       this.otherList.emit();
     }
+  }
+
+  public petList: Pet[];
+
+  getAvailablePets(){
+    this.userService.getPets().subscribe(
+      {
+        next: pets => {
+          this.petList = pets;
+          //pega pelo pets, mas não pelo petList
+          console.log(pets);
+        },
+        error: err => console.error(err)
+      }
+    );
+    console.log("Pegando do http");
+    console.log(this.petList);
   }
 }

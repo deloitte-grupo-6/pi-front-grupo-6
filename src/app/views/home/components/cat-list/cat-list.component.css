@@ -9,14 +9,17 @@
   color: whitesmoke;
   border-radius: 50px;
   width: 500px;
+  max-width: 100%;
   margin: 10px;
   padding-bottom: 50px;
 }
 
 .container img {
   width: 480px;
+  max-width: 100%;
   padding: 50px 50px 10px 50px;
   border-radius: 40px;
+  cursor: pointer;
 }
 
 .container h2 {
