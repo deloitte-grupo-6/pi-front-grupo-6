@@ -12,7 +12,19 @@ export class UserService {
 
 
   getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>('http://localhost:8080/pets');
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets');
+  }
+
+  getDogs(): Observable<Pet[]> {
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/CACHORRO/true');
+  }
+
+  getCats(): Observable<Pet[]> {
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/GATO/true');
+  }
+
+  getOthers(): Observable<Pet[]> {
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/OUTROS/true');
   }
 
   

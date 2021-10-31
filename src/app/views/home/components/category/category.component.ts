@@ -15,15 +15,15 @@ export class CategoryComponent implements OnInit {
 
   categoryData = [
     {
-      type: 'Cachorro',
+      type: 'CACHORRO',
       img: '../../assets/images/dog.png',
     },
     {
-      type: 'Gato',
+      type: 'GATO',
       img: '../../assets/images/cat.png',
     },
     {
-      type: 'Outros',
+      type: 'OUTROS',
       img: '../../assets/images/adoption.png',
     },
   ];
@@ -33,31 +33,60 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {}
 
   showList(animal) {
-    if (animal == 'Cachorro') {
-      this.dogList.emit();
+    if (animal == 'CACHORRO') {
+      // this.dogList.emit();
+      this.userService.getDogs().subscribe(
+        {
+          next: dogs => {
+            this.petList = dogs;
+            console.log(dogs);
+            this.dogList.emit();
+          },
+          error: err => console.error(err)
+        }
+      );
     }
-    if (animal == 'Gato') {
-      this.catList.emit();
+    if (animal == 'GATO') {
+      this.userService.getCats().subscribe(
+        {
+          next: cats => {
+            this.petList = cats;
+            console.log(cats);
+            this.catList.emit();
+          },
+          error: err => console.error(err)
+        }
+      );
     }
-    if (animal == 'Outros') {
-      this.otherList.emit();
+    if (animal == 'OUTROS') {
+      this.userService.getOthers().subscribe(
+        {
+          next: others => {
+            this.petList = others;
+            console.log(others);
+            this.otherList.emit();
+          },
+          error: err => console.error(err)
+        }
+      );
     }
   }
 
-  public petList: Pet[];
+  @Output() petList: Pet[];
 
-  getAvailablePets(){
-    this.userService.getPets().subscribe(
-      {
-        next: pets => {
-          this.petList = pets;
-          //pega pelo pets, mas não pelo petList
-          console.log(pets);
-        },
-        error: err => console.error(err)
-      }
-    );
-    console.log("Pegando do http");
-    console.log(this.petList);
-  }
+  // getAvailablePets(){
+  //   this.userService.getPets().subscribe(
+  //     {
+  //       next: pets => {
+  //         this.petList = pets;
+  //         //pega pelo pets, mas não pelo petList
+  //         console.log("Carregando pets");
+  //         console.log(pets);
+  //       },
+  //       error: err => console.error(err)
+  //     }
+  //   );
+  //   console.log("Carregando petList");
+  //   console.log(this.petList);
+  // }
 }

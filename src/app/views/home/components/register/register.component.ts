@@ -12,6 +12,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onSubmitRegister(form){
+    console.log(form);
+  }
+
   onBtnCancelRegister() {
     this.hideRegister.emit();
   }
