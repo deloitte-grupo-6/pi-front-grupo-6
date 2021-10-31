@@ -16,14 +16,17 @@ export class UserService {
   }
 
   getDogs(): Observable<Pet[]> {
+    console.log("Entrou no serviço do cachorro");
     return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/CACHORRO/true');
   }
 
   getCats(): Observable<Pet[]> {
+    console.log("Entrou no serviço do gato");
     return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/GATO/true');
   }
 
   getOthers(): Observable<Pet[]> {
+    console.log("Entrou no serviço do outros");
     return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/OUTROS/true');
   }
 

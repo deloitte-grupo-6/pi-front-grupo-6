@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pet } from '../../interfaces/pet';
 
 
 
@@ -15,7 +16,7 @@ export class DogListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  petList;
+  @Input() petList: Pet[];
 
   // dogs = [
   //   {

@@ -33,6 +33,8 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {}
 
   showList(animal) {
+    console.log("clicou no botão. Categoria:");
+    console.log(animal);
     if (animal == 'CACHORRO') {
       // this.dogList.emit();
       this.userService.getDogs().subscribe(
@@ -72,7 +74,7 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  @Output() petList: Pet[];
+  petList: Pet[];
 
   // getAvailablePets(){
   //   this.userService.getPets().subscribe(

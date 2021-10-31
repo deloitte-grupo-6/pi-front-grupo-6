@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Pet } from '../../interfaces/pet';
 
 @Component({
   selector: 'app-cat-list',
@@ -41,7 +42,7 @@ export class CatListComponent implements OnInit {
   //   },
   // ];
 
-  @Input() petList;
+  @Input() petList: Pet[];
 
   constructor() {}
 
