@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
-import { UserService } from '../../services/user.service';
+import { PetService } from '../../services/pet.service';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +11,6 @@ export class CategoryComponent implements OnInit {
   @Output() dogList = new EventEmitter();
   @Output() catList = new EventEmitter();
   @Output() otherList = new EventEmitter();
-  
 
   categoryData = [
     {
@@ -28,56 +27,50 @@ export class CategoryComponent implements OnInit {
     },
   ];
 
-  constructor(private userService: UserService) { }
+  constructor(private petService: PetService) {}
 
   ngOnInit(): void {}
 
   showList(animal) {
-    console.log("clicou no botão. Categoria:");
+    console.log('clicou no botão. Categoria:');
     console.log(animal);
     if (animal == 'CACHORRO') {
       // this.dogList.emit();
-      this.userService.getDogs().subscribe(
-        {
-          next: dogs => {
-            this.petList = dogs;
-            console.log(dogs);
-            this.dogList.emit();
-          },
-          error: err => console.error(err)
-        }
-      );
+      this.petService.getDogs().subscribe({
+        next: (dogs) => {
+          this.petList = dogs;
+          console.log(dogs);
+          this.dogList.emit();
+        },
+        error: (err) => console.error(err),
+      });
     }
     if (animal == 'GATO') {
-      this.userService.getCats().subscribe(
-        {
-          next: cats => {
-            this.petList = cats;
-            console.log(cats);
-            this.catList.emit();
-          },
-          error: err => console.error(err)
-        }
-      );
+      this.petService.getCats().subscribe({
+        next: (cats) => {
+          this.petList = cats;
+          console.log(cats);
+          this.catList.emit();
+        },
+        error: (err) => console.error(err),
+      });
     }
     if (animal == 'OUTROS') {
-      this.userService.getOthers().subscribe(
-        {
-          next: others => {
-            this.petList = others;
-            console.log(others);
-            this.otherList.emit();
-          },
-          error: err => console.error(err)
-        }
-      );
+      this.petService.getOthers().subscribe({
+        next: (others) => {
+          this.petList = others;
+          console.log(others);
+          this.otherList.emit();
+        },
+        error: (err) => console.error(err),
+      });
     }
   }
 
   petList: Pet[];
 
   // getAvailablePets(){
-  //   this.userService.getPets().subscribe(
+  //   this.petService.getPets().subscribe(
   //     {
   //       next: pets => {
   //         this.petList = pets;
