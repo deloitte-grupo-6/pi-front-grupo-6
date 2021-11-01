@@ -28,13 +28,12 @@ export class PetRegisterComponent implements OnInit {
     this.defaultBtn.emit();
   }
 
-  cadastrarPet(){
+  petRegister(){
     let observable = this.petService.registerPet(this.nome, this.especie, this.raca, this.sexo, this.dataNascimento, this.descricao);
 
     observable.subscribe(
       {
         next: data => {
-          // window.sessionStorage.setItem("token", (<response>data).token);
           console.log(data);
         },
         error: err => console.log(err)

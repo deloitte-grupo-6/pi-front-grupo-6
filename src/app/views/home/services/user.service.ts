@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  register(nome: string, email:string, contato: string, documento: string, cidade: string, senha: string){
+  registerUser(nome: string, email:string, contato: string, documento: string, cidade: string, senha: string){
     let user = {nome, email, contato, documento, cidade, senha};
 
     return this.http.post(this.url + "/usuarios/cadastrar", user);

@@ -3,31 +3,31 @@
     <h4>FAÇA PARTE DA FAMÍLIA <b>DELOVE</b></h4>
     <label for="text">
       Nome
-      <input type="text" name="nome" id="nome" placeholder="Ex.: Fulano" ngModel>
+      <input type="text" name="nome" id="nome" placeholder="Ex.: Fulano" [(ngModel)]="nome">
     </label>
     <label for="text">
       E-mail
-      <input type="email" name="email" id="email" placeholder="Ex.: fulano@gmail.com" ngModel>
+      <input type="email" name="email" id="email" placeholder="Ex.: fulano@gmail.com" [(ngModel)]="email">
     </label>
     <label for="text">
       Telefone
-      <input type="tel" name="contato" id="telefone" placeholder="Ex.: (21)999999999" ngModel>
+      <input type="tel" name="contato" id="telefone" placeholder="Ex.: (21)999999999" [(ngModel)]="contato">
     </label>
     <label for="text">
       CPF/CNPJ
-      <input type="text" name="documento" id="documento" placeholder="Ex.: 123.456.789-10" ngModel>
+      <input type="text" name="documento" id="documento" placeholder="Ex.: 123.456.789-10" [(ngModel)]="documento">
     </label>
     <label for="text">
       Cidade
-      <input type="text" name="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca" ngModel>
+      <input type="text" name="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca" [(ngModel)]="cidade">
     </label>
     <label for="text">
       Senha
-      <input type="password" name="senha" id="senha" placeholder="Sua senha deve ter entre 6 e 20 dígitos" ngModel>
+      <input type="password" name="senha" id="senha" placeholder="Sua senha deve ter entre 6 e 20 dígitos" [(ngModel)]="senha">
     </label>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelRegister()">Cancelar</button>
-      <button type="submit">Criar</button>
+      <button type="submit" (click)="userRegister()">Criar</button>
     </div>
   </form>
 </div>
