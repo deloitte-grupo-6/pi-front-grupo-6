@@ -11,7 +11,6 @@ export class CategoryComponent implements OnInit {
   @Output() dogList = new EventEmitter();
   @Output() catList = new EventEmitter();
   @Output() otherList = new EventEmitter();
-  
 
   categoryData = [
     {
@@ -33,7 +32,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {}
 
   showList(animal) {
-    console.log("clicou no botão. Categoria:");
+    console.log('clicou no botão. Categoria:');
     console.log(animal);
     if (animal == 'CACHORRO') {
       // this.dogList.emit();

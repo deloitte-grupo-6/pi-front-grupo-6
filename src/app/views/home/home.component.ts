@@ -7,6 +7,7 @@ import { Pet } from './interfaces/pet';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  booleanPetRegister: boolean = false;
   booleanRegister: boolean = false;
   booleanLogin: boolean = false;
   booleanDogList: boolean = false;
@@ -16,6 +17,14 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  modalPetRegister() {
+    this.booleanPetRegister = true;
+  }
+
+  cancelModalPetRegister() {
+    this.booleanPetRegister = false;
+  }
 
   modalRegister() {
     this.booleanRegister = true;
@@ -36,18 +45,18 @@ export class HomeComponent implements OnInit {
   showingDList() {
     this.booleanCatList = false;
     this.booleanOtherList = false;
-    this.booleanDogList = true;
+    this.booleanDogList = !this.booleanDogList;
   }
 
   showingCList() {
     this.booleanDogList = false;
     this.booleanOtherList = false;
-    this.booleanCatList = true;
+    this.booleanCatList = !this.booleanCatList;
   }
 
   showingOList() {
     this.booleanCatList = false;
     this.booleanDogList = false;
-    this.booleanOtherList = true;
+    this.booleanOtherList = !this.booleanOtherList;
   }
 }

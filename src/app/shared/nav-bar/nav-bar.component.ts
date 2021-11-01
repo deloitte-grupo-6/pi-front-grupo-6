@@ -8,10 +8,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavBarComponent implements OnInit {
   @Output() showRegisterModal = new EventEmitter();
   @Output() showLoginModal = new EventEmitter();
+  @Output() showPetRegisterModal = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onPetRegisterClick() {
+    this.showPetRegisterModal.emit();
+  }
 
   onRegisterClick() {
     this.showRegisterModal.emit();

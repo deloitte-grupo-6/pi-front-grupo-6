@@ -1,0 +1,17 @@
+.container {
+  margin-bottom: 50px;
+  background-image: url("../../../../../assets/images/banner.png");
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.container h1,
+h2 {
+  align-self: center;
+  color: rgb(109, 54, 161);
+  font-weight: 600;
+}

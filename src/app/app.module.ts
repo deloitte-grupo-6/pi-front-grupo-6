@@ -17,7 +17,8 @@ import { CatListComponent } from './views/home/components/cat-list/cat-list.comp
 import { OtherListComponent } from './views/home/components/other-list/other-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PetsListComponent } from './views/home/components/pets-list/pets-list.component'
+import { PetsListComponent } from './views/home/components/pets-list/pets-list.component';
+import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,10 @@ import { PetsListComponent } from './views/home/components/pets-list/pets-list.c
     DogListComponent,
     CatListComponent,
     OtherListComponent,
-    PetsListComponent,
+    PetRegisterComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

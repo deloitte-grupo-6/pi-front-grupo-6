@@ -1,0 +1,102 @@
+#form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(226, 224, 231, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s linear;
+}
+
+h4 {
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
+#form-container form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 468px;
+  border-radius: 10px;
+}
+
+#form-container form label {
+  color: rgb(78, 38, 116);
+  font-size: 17px;
+  width: 100%;
+  padding: 3px;
+}
+
+#form-container form input {
+  display: block;
+  width: 100%;
+  background-color: #bfdfd8;
+  border: none;
+  color: rgb(109, 54, 161);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#form-container form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+#form-container form .buttons button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+}
+
+select,
+option,
+textarea {
+  background-color: #bfdfd8;
+  color: rgb(78, 38, 116);
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+}
+
+input::-webkit-file-upload-button {
+  border: 3px solid rgb(78, 38, 116);
+  border-radius: 10px;
+  background-color: rgb(163, 115, 207);
+  color: #fff;
+  font: 14px arial, sans-serif;
+  height: 30px;
+  width: 130px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.submit {
+  background: rgb(163, 115, 207);
+  border-radius: 10px;
+  border-style: outset;
+  border: 3px solid rgb(78, 38, 116);
+  height: 30px;
+  width: 130px;
+  font: 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+}
