@@ -10,27 +10,34 @@ export class PetService {
   
   constructor(private http: HttpClient) { }
 
+  private readonly url="https://pi-grupo6-test.herokuapp.com";
+
 
   getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets');
+    return this.http.get<Pet[]>(this.url + '/pets');
   }
 
   getDogs(): Observable<Pet[]> {
     console.log("Entrou no serviço do cachorro");
-    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/CACHORRO/true');
+    return this.http.get<Pet[]>(this.url + '/pets/especie/CACHORRO/true');
   }
 
   getCats(): Observable<Pet[]> {
     console.log("Entrou no serviço do gato");
-    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/GATO/true');
+    return this.http.get<Pet[]>(this.url + '/pets/especie/GATO/true');
   }
 
   getOthers(): Observable<Pet[]> {
     console.log("Entrou no serviço do outros");
-    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pets/especie/OUTROS/true');
+    return this.http.get<Pet[]>(this.url + '/pets/especie/OUTROS/true');
   }
 
-  
+  registerPet(nome: string, especie: string, raca: string, sexo: string, dataNascimento: string, descricao: string){
+    let doador = {"id": 2};
+    let pet = {nome, doador, especie, raca, sexo, dataNascimento, descricao};
+    // console.log(pet);
+    return this.http.post(this.url + "/pets/cadastrar", pet);
+  }
 
 }
 

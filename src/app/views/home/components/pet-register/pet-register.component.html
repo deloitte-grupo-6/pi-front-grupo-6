@@ -3,36 +3,36 @@
     <h4>CADASTRO DE PET</h4>
     <label for="nome">
       Nome
-      <input type="text" name="nome" id="nome" placeholder="Digite o nome do pet">
+      <input type="text" name="nome" id="nome" placeholder="Digite o nome do pet" [(ngModel)]="nome">
     </label>
     <label for="especie">Especie</label>
-    <select name="Especie">
+    <select name="Especie" [(ngModel)]="especie">
       <option value="CACHORRO">Cachorro</option>
       <option value="GATO">Gato</option>
       <option value="OUTROS">Outros</option>
     </select>
     <label for="raca">
       Raça
-      <input type="text" name="raca" id="raca" placeholder="Digite a raça do pet">
+      <input type="text" name="raca" id="raca" placeholder="Digite a raça do pet" [(ngModel)]="raca">
     </label>
     <label for="sexo">Sexo</label>
-    <select name="Sexo">
+    <select name="Sexo" [(ngModel)]="sexo">
       <option value="MACHO">Macho</option>
       <option value="FEMEA">Fêmea</option>
       <option value="OUTRO">Outro</option>
     </select>
     <label for="nascimento">
       Nascimento
-      <input type="date" name="nascimento" id="nascimento" placeholder="Digite a data de nascimento do pet">
+      <input type="date" name="nascimento" id="nascimento" placeholder="Digite a data de nascimento do pet" [(ngModel)]="dataNascimento">
     </label>
     <label for="descricao">Descrição</label>
-    <textarea type="text" name="descricao" id="descricao" placeholder="Escreva algo sobre o pet"></textarea>
+    <textarea type="text" name="descricao" id="descricao" placeholder="Escreva algo sobre o pet" [(ngModel)]="descricao"></textarea>
 
     <input id="choose" type="file">
     <button class="submit" type="submit">Enviar</button>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
-      <button type="button">Cadastrar</button>
+      <button type="button" (click)="cadastrarPet()">Cadastrar</button>
     </div>
   </form>
 </div>
