@@ -6,7 +6,7 @@ import { Pet } from '../interfaces/pet';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class PetService {
   
   constructor(private http: HttpClient) { }
 

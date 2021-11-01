@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
-import { UserService } from '../../services/user.service';
+import { PetService } from '../../services/pet.service';
 
 @Component({
   selector: 'app-category',
@@ -28,7 +28,7 @@ export class CategoryComponent implements OnInit {
     },
   ];
 
-  constructor(private userService: UserService) { }
+  constructor(private petService: PetService) { }
 
   ngOnInit(): void {}
 
@@ -37,7 +37,7 @@ export class CategoryComponent implements OnInit {
     console.log(animal);
     if (animal == 'CACHORRO') {
       // this.dogList.emit();
-      this.userService.getDogs().subscribe(
+      this.petService.getDogs().subscribe(
         {
           next: dogs => {
             this.petList = dogs;
@@ -49,7 +49,7 @@ export class CategoryComponent implements OnInit {
       );
     }
     if (animal == 'GATO') {
-      this.userService.getCats().subscribe(
+      this.petService.getCats().subscribe(
         {
           next: cats => {
             this.petList = cats;
@@ -61,7 +61,7 @@ export class CategoryComponent implements OnInit {
       );
     }
     if (animal == 'OUTROS') {
-      this.userService.getOthers().subscribe(
+      this.petService.getOthers().subscribe(
         {
           next: others => {
             this.petList = others;
@@ -77,7 +77,7 @@ export class CategoryComponent implements OnInit {
   petList: Pet[];
 
   // getAvailablePets(){
-  //   this.userService.getPets().subscribe(
+  //   this.petService.getPets().subscribe(
   //     {
   //       next: pets => {
   //         this.petList = pets;
