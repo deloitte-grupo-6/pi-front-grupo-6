@@ -1,33 +1,33 @@
 <div id="form-container">
-  <form>
+  <form #fo="ngForm" (ngSubmit)="onSubmitRegister(fo)">
     <h4>FAÇA PARTE DA FAMÍLIA <b>DELOVE</b></h4>
     <label for="text">
       Nome
-      <input type="text" name="nome" id="nome" placeholder="Digite seu Nome">
+      <input type="text" name="nome" id="nome" placeholder="Ex.: Fulano" ngModel>
     </label>
     <label for="text">
       E-mail
-      <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+      <input type="email" name="email" id="email" placeholder="Ex.: fulano@gmail.com" ngModel>
     </label>
     <label for="text">
       Telefone
-      <input type="tel" name="telefone" id="telefone" placeholder="Digite seu telefone para contato">
+      <input type="tel" name="contato" id="telefone" placeholder="Ex.: (21)999999999" ngModel>
     </label>
     <label for="text">
       CPF/CNPJ
-      <input type="text" name="documento" id="documento" placeholder="Digite seu CPF ou CNPJ">
+      <input type="text" name="documento" id="documento" placeholder="Ex.: 123.456.789-10" ngModel>
     </label>
     <label for="text">
       Cidade
-      <input type="text" name="cidade" id="cidade" placeholder="Digite sua cidade">
+      <input type="text" name="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca" ngModel>
     </label>
     <label for="text">
       Senha
-      <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+      <input type="password" name="senha" id="senha" placeholder="Sua senha deve ter entre 6 e 20 dígitos" ngModel>
     </label>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelRegister()">Cancelar</button>
-      <button type="button">Criar</button>
+      <button type="submit">Criar</button>
     </div>
   </form>
 </div>

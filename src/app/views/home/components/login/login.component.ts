@@ -12,6 +12,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onSubmitLogin(form){
+    console.log(form);
+  }
+
   onBtnCancelLogin() {
     this.hideLogin.emit();
   }
