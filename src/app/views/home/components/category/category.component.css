@@ -2,6 +2,8 @@
   background-color: #a9e4d7;
   color: whitesmoke;
   border-radius: 50px;
+  margin: 10px;
+  font-size: 80%;
 }
 
 .categoria {
@@ -9,4 +11,8 @@
   color: rgb(109, 54, 161);
   padding-top: 100px;
   text-align: center;
+}
+
+button {
+  width: 100%;
 }
