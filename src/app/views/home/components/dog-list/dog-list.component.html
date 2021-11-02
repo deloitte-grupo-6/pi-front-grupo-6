@@ -7,7 +7,7 @@
         <h2><b>{{dog.nome}}</b></h2>
         <p>{{dog.raca}}, {{dog.sexo}}, {{idadeCachorroPelaDataDeNascimento(dog.dataNascimento)}}</p>
 
-        <button type="button">Ver mais detalhes</button>
+        <button type="button" [routerLink]="['/detalhes', {'id':dog.id}]">Ver mais detalhes</button>
 
       </div>
     </div>

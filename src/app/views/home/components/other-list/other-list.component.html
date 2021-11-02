@@ -7,7 +7,7 @@
         <h2><b>{{other.nome}}</b></h2>
         <p>{{other.raca}}, {{other.sexo}}, {{idadeOutrosPelaDataDeNascimento(other.dataNascimento)}}</p>
 
-        <button type="button">Ver mais detalhes</button>
+        <button type="button" [routerLink]="['/detalhes', {'id':other.id}]">Ver mais detalhes</button>
 
       </div>
     </div>

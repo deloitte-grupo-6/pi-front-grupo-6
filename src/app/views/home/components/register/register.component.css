@@ -13,7 +13,7 @@
   transition: opacity 3s linear;
 }
 
-h4{
+h4 {
   color: rgb(78, 38, 116);
   align-self: center;
   text-align: center;
@@ -43,6 +43,7 @@ h4{
   color: rgb(109, 54, 161);
   border-radius: 5px;
   padding: 5px;
+  font-size: 14px;
 }
 
 #form-container form .buttons {

@@ -1,0 +1,17 @@
+.container {
+  background-color: rgba(226, 224, 231, 0.5);
+}
+
+button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 80%;
+  font: bold 20px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+  text-align: center;
+  margin: 20px 50px 50px 50px;
+}

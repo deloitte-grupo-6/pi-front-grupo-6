@@ -7,7 +7,7 @@
         <h2><b>{{cat.nome}}</b></h2>
         <p>{{cat.raca}}, {{cat.sexo}}, {{idadeGatoPelaDataDeNascimento(cat.dataNascimento)}}</p>
 
-        <button type="button">Ver mais detalhes</button>
+        <button type="button" [routerLink]="['/detalhes', {'id':cat.id}]">Ver mais detalhes</button>
 
       </div>
     </div>
