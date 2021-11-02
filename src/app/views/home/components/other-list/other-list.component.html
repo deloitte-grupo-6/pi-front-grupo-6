@@ -1,10 +1,15 @@
 <div class="other_test">
-  <div class="container" *ngFor="let other of petList">
-    <img src="../../../../../assets/images/bird1.png">
-    <h2><b>{{other.nome}}</b></h2>
-    <p><b>Raça: </b>{{other.raca}}</p>
-    <p><b>Sexo: </b>{{other.sexo}}</p>
-    <p><b>Nascimento: </b>{{other.dataNascimento}}</p>
-    <!--<p><b>Descrição: </b>{{dog.descricao}}</p>-->
+  <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" *ngFor="let other of petList">
+      <div class="card shadow-sm align-items-center" *ngIf="other">
+        <img src="../../../../../assets/images/bird1.png" class="card-img-top p-5" alt="imagem">
+
+        <h2><b>{{other.nome}}</b></h2>
+        <p>{{other.raca}}, {{other.sexo}}, {{idadeOutrosPelaDataDeNascimento(other.dataNascimento)}}</p>
+
+        <button type="button">Ver mais detalhes</button>
+
+      </div>
+    </div>
   </div>
 </div>

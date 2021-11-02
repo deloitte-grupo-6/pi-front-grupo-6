@@ -33,4 +33,8 @@ export class PetService {
       'https://pi-grupo6-test.herokuapp.com/pets/especie/OUTROS/true'
     );
   }
+
+  getPetById(): Observable<Pet[]> {
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pet/id');
+  }
 }

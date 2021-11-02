@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
-
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dog-list',
@@ -9,7 +8,6 @@ import { Pet } from '../../interfaces/pet';
   styleUrls: ['./dog-list.component.css'],
 })
 export class DogListComponent implements OnInit {
-
   @Output() dogDescription = new EventEmitter();
 
   constructor() {}
@@ -57,10 +55,12 @@ export class DogListComponent implements OnInit {
   //   },
   // ];
 
-  onModalDog(dog: number){
-    console.log("Cliquei");
+  onModalDog(dog: number) {
+    console.log('Cliquei');
     this.dogDescription.emit(dog);
   }
 
-
+  public idadeCachorroPelaDataDeNascimento(dataNascimento: any): String {
+    return moment().diff(dataNascimento, 'years', true).toFixed(0) + 'a';
+  }
 }

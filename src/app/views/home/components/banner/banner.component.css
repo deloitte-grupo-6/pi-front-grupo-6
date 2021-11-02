@@ -4,7 +4,7 @@
   height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: left;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -22,10 +22,32 @@ h2 {
 
 .container h1 {
   font-family: "Parisienne", cursive;
-  font-size: 5vw;
+  /*font-size: 5vw;*/
+  font-size: 4em;
 }
 
 .container h2 {
   font-family: "Parisienne", cursive;
-  font-size: 3vw;
+  /* font-size: 3vw; */
+  font-size: 2.5em;
+}
+
+@media (max-width: 491px) {
+  .container h1 {
+    font-size: 3em;
+  }
+
+  .container h2 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 297px) {
+  .container h1 {
+    font-size: 2em;
+  }
+
+  .container h2 {
+    font-size: 1em;
+  }
 }

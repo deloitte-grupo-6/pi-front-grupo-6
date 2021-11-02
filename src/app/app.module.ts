@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PetsListComponent } from './views/home/components/pets-list/pets-list.component';
 import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
+import { DetailsComponent } from './views/home/components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,9 @@ import { PetRegisterComponent } from './views/home/components/pet-register/pet-r
     CatListComponent,
     OtherListComponent,
     PetRegisterComponent,
+    DetailsComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
