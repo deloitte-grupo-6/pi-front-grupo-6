@@ -1,0 +1,57 @@
+#form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(226, 224, 231, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s linear;
+}
+
+h2,
+h4 {
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+#form-container form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 468px;
+  border-radius: 10px;
+}
+
+i {
+  font-size: 28px;
+  color: rgb(78, 38, 116);
+  padding-right: 10px;
+}
+
+a {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-close {
+  position: relative;
+  right: 40px;
+  top: -85px;
+}

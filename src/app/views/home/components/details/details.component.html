@@ -1,3 +1,6 @@
+<app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal">
+</app-adoption>
 <div class="container">
-  <button type=button>Quero adotar!</button>
+  <!-- {{id}} -->
+  <button type=button (click)="modalAdopt()">Quero adotar!</button>
 </div>
