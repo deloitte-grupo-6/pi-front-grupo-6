@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-cat-list',
@@ -47,4 +48,8 @@ export class CatListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public idadeGatoPelaDataDeNascimento(dataNascimento: any): String {
+    return moment().diff(dataNascimento, 'years', true).toFixed(0) + 'a';
+  }
 }

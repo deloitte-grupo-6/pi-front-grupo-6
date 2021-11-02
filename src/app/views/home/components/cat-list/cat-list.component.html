@@ -1,10 +1,15 @@
 <div class="cat_test">
-  <div class="container" *ngFor="let cat of petList">
-    <img src="../../../../../assets/images/cat1.png">
-    <h2><b>{{cat.nome}}</b></h2>
-    <p><b>Raça: </b>{{cat.raca}}</p>
-    <p><b>Sexo: </b>{{cat.sexo}}</p>
-    <p><b>Nascimento: </b>{{cat.dataNascimento}}</p>
-    <!--<p><b>Descrição: </b>{{dog.descricao}}</p>-->
+  <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" *ngFor="let cat of petList">
+      <div class="card shadow-sm align-items-center" *ngIf="cat">
+        <img src="../../../../../assets/images/cat1.png" class="card-img-top" alt="imagem">
+
+        <h2><b>{{cat.nome}}</b></h2>
+        <p>{{cat.raca}}, {{cat.sexo}}, {{idadeGatoPelaDataDeNascimento(cat.dataNascimento)}}</p>
+
+        <button type="button" [routerLink]="['/detalhes', {'id':cat.id}]">Ver mais detalhes</button>
+
+      </div>
+    </div>
   </div>
 </div>

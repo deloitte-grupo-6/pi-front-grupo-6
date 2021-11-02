@@ -6,8 +6,9 @@
   <app-login (hideLogin)="cancelModalLogin()" *ngIf="booleanLogin"></app-login>
   <app-banner></app-banner>
   <app-about></app-about>
-  <app-category (dogList)="showingDList()" (catList)="showingCList()" (otherList)="showingOList()" #petCategory></app-category>
-  <app-dog-list *ngIf="booleanDogList" [petList]="petCategory.petList"></app-dog-list>
+  <app-category (dogList)="showingDList()" (catList)="showingCList()" (otherList)="showingOList()" #petCategory>
+  </app-category>
+  <app-dog-list *ngIf="booleanDogList" [petList]="petCategory.petList" #listaCachorro></app-dog-list>
   <app-cat-list *ngIf="booleanCatList" [petList]="petCategory.petList"></app-cat-list>
   <app-other-list *ngIf="booleanOtherList" [petList]="petCategory.petList"></app-other-list>
   <app-team></app-team>

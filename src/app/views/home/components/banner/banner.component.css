@@ -23,29 +23,28 @@ h2 {
 
 .container h1 {
   font-family: "Parisienne", cursive;
-  /* font-size: 5vw; */
-  font-size: 3.5em;
-
+  /*font-size: 5vw;*/
+  font-size: 4em;
 }
 
 .container h2 {
   font-family: "Parisienne", cursive;
   /* font-size: 3vw; */
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
-@media (max-width: 425px){
-  .container h1{
-    font-size: 2.5em;
+@media (max-width: 491px) {
+  .container h1 {
+    font-size: 3em;
   }
 
   .container h2 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 
-@media (max-width: 297px){
-  .container h1{
+@media (max-width: 297px) {
+  .container h1 {
     font-size: 2em;
   }
 

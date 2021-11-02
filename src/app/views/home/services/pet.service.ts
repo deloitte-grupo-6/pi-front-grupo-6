@@ -39,6 +39,9 @@ export class PetService {
     return this.http.post(this.url + "/pets/cadastrar", pet);
   }
 
+  getPetById(): Observable<Pet[]> {
+    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pet/id');
+  }
 }
 
 
