@@ -17,6 +17,8 @@ export class PetRegisterComponent implements OnInit {
   dataNascimento = '';
   descricao = '';
 
+  fileToUpload: File;
+
   constructor(private petService: PetService) {}
 
   ngOnInit(): void {}
@@ -35,9 +37,17 @@ export class PetRegisterComponent implements OnInit {
       {
         next: data => {
           console.log(data);
+          this.hidePetRegister.emit();
+          alert('Pet cadastrado com sucesso');
         },
         error: err => console.log(err)
       }
     )
+  }
+
+  fileInput(files: FileList){
+
+    this.fileToUpload = files.item(0);
+    
   }
 }

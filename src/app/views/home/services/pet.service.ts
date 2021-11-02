@@ -10,7 +10,7 @@ export class PetService {
   
   constructor(private http: HttpClient) { }
 
-  private readonly url="https://pi-grupo6-test.herokuapp.com";
+  private readonly url="https://api-g6.herokuapp.com";
 
 
   getPets(): Observable<Pet[]> {

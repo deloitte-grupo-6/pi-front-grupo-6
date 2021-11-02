@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  private readonly url="https://pi-grupo6-test.herokuapp.com";
+  private readonly url="https://api-g6.herokuapp.com";
 
   constructor(private http:HttpClient) { }
 

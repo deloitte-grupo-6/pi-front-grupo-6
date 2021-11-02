@@ -37,6 +37,8 @@ export class RegisterComponent implements OnInit {
         next: data => {
           // window.sessionStorage.setItem("token", (<response>data).token);
           console.log(data);
+          this.hideRegister.emit();
+          alert('Usuário cadastrado com sucesso');
         },
         error: err => console.log(err)
       }
