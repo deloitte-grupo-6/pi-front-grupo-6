@@ -4,3 +4,7 @@
 * {
   font-family: "Poppins";
 }
+
+html {
+  background-color: rgba(226, 224, 231, 0.5);
+}

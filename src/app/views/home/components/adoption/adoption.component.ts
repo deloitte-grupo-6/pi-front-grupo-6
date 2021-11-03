@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pet } from '../../interfaces/pet';
 
 @Component({
   selector: 'app-adoption',
@@ -7,16 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AdoptionComponent implements OnInit {
   @Output() hideAdoption = new EventEmitter();
-  @Output() showAdoptModal = new EventEmitter();
+  @Input() petById: Pet;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   onBtnCancelAdoption() {
     this.hideAdoption.emit();
-  }
-
-  onAdoptClick() {
-    this.showAdoptModal.emit();
   }
 }

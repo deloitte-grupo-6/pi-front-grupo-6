@@ -1,6 +1,18 @@
-<app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal">
+<app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal" [petById]="petById">
 </app-adoption>
-<div class="container">
-  <!-- {{petById.nome}} -->
+<div class="info">
+  <div class="text">
+    <p>Nome: {{petById.nome}}</p>
+    <p>Espécie: {{petById.especie}}</p>
+    <p>Raça: {{petById.raca}}</p>
+    <p>Sexo: {{petById.sexo}}</p>
+    <p>Data de Nascimento: {{petById.dataNascimento}}</p>
+    <p>Descrição: {{petById.descricao}}</p>
+  </div>
+  <div class="image">
+    <img src={{petById.imagemUrl}} alt=" Foto + {{petById.nome}}">
+  </div>
+</div>
+<div class="button">
   <button type=button (click)="modalAdopt()">Quero adotar!</button>
 </div>
