@@ -7,7 +7,6 @@ import * as moment from 'moment';
   styleUrls: ['./other-list.component.css'],
 })
 export class OtherListComponent implements OnInit {
-
   @Input() petList: Pet[];
 
   constructor() {}
@@ -15,6 +14,13 @@ export class OtherListComponent implements OnInit {
   ngOnInit(): void {}
 
   public idadeOutrosPelaDataDeNascimento(dataNascimento: any): String {
-    return moment().diff(dataNascimento, 'years', true).toFixed(0) + ' anos';
+    let year = moment().diff(dataNascimento, 'years', true);
+    let ano = Math.floor(year);
+    let month = moment().diff(dataNascimento, 'months', true) - ano * 12;
+    let mes = Math.floor(month);
+    if (ano == 0) {
+      return mes + ' meses';
+    }
+    return ano + ' anos e ' + mes + ' meses';
   }
 }
