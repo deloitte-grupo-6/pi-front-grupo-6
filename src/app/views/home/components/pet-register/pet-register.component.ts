@@ -17,7 +17,8 @@ export class PetRegisterComponent implements OnInit {
   dataNascimento = '';
   descricao = '';
 
-  fileToUpload: File;
+  // fileToUpload: File;
+  url: string;
 
   constructor(private petService: PetService) {}
 
@@ -31,7 +32,7 @@ export class PetRegisterComponent implements OnInit {
   }
 
   petRegister(){
-    let observable = this.petService.registerPet(this.nome, this.especie, this.raca, this.sexo, this.dataNascimento, this.descricao);
+    let observable = this.petService.registerPet(this.nome, this.especie, this.raca, this.sexo, this.dataNascimento, this.descricao, this.url);
 
     observable.subscribe(
       {
@@ -45,9 +46,15 @@ export class PetRegisterComponent implements OnInit {
     )
   }
 
-  fileInput(files: FileList){
+  // fileInput(files: FileList){
 
-    this.fileToUpload = files.item(0);
+  //   this.fileToUpload = files.item(0);
     
+  // }
+  onFileChanges(files){
+    console.log("Imagem recebida: ", files);
+    this.url = files[0].base64;
+    console.log(this.url);
   }
+
 }

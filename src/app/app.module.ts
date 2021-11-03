@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { PetsListComponent } from './views/home/components/pets-list/pets-list.component';
 import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
 import { DetailsComponent } from './views/home/components/details/details.component';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { DetailsComponent } from './views/home/components/details/details.compon
     PetRegisterComponent,
     DetailsComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, AlifeFileToBase64Module],
   providers: [],
   bootstrap: [AppComponent],
 })

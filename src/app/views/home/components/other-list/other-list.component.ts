@@ -7,40 +7,6 @@ import * as moment from 'moment';
   styleUrls: ['./other-list.component.css'],
 })
 export class OtherListComponent implements OnInit {
-  // others = [
-  //   {
-  //     nome: 'Tweety',
-  //     raca: 'Calopsita',
-  //     sexo: 'Macho',
-  //     dataNascimento: '02-05-2020',
-  //     descricao:
-  //       'Olá, eu sou o Luigi e sou muito alegre e brincalhão! Adoro um chinelo e dar lambeijos de montão!',
-  //   },
-  //   {
-  //     nome: 'Tweety',
-  //     raca: 'Calopsita',
-  //     sexo: 'Macho',
-  //     dataNascimento: '02-05-2020',
-  //     descricao:
-  //       'Olá, eu sou o Luigi e sou muito alegre e brincalhão! Adoro um chinelo e dar lambeijos de montão!',
-  //   },
-  //   {
-  //     nome: 'Tweety',
-  //     raca: 'Calopsita',
-  //     sexo: 'Macho',
-  //     dataNascimento: '02-05-2020',
-  //     descricao:
-  //       'Olá, eu sou o Luigi e sou muito alegre e brincalhão! Adoro um chinelo e dar lambeijos de montão!',
-  //   },
-  //   {
-  //     nome: 'Tweety',
-  //     raca: 'Calopsita',
-  //     sexo: 'Macho',
-  //     dataNascimento: '02-05-2020',
-  //     descricao:
-  //       'Olá, eu sou o Luigi e sou muito alegre e brincalhão! Adoro um chinelo e dar lambeijos de montão!',
-  //   },
-  // ];
 
   @Input() petList: Pet[];
 
@@ -49,6 +15,6 @@ export class OtherListComponent implements OnInit {
   ngOnInit(): void {}
 
   public idadeOutrosPelaDataDeNascimento(dataNascimento: any): String {
-    return moment().diff(dataNascimento, 'years', true).toFixed(0) + 'a';
+    return moment().diff(dataNascimento, 'years', true).toFixed(0) + ' anos';
   }
 }

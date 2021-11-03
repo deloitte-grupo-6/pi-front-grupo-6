@@ -32,15 +32,15 @@ export class PetService {
     return this.http.get<Pet[]>(this.url + '/pets/especie/OUTROS/true');
   }
 
-  registerPet(nome: string, especie: string, raca: string, sexo: string, dataNascimento: string, descricao: string){
+  registerPet(nome: string, especie: string, raca: string, sexo: string, dataNascimento: string, descricao: string, imagemUrl: string){
     let doador = {"id": 2};
-    let pet = {nome, doador, especie, raca, sexo, dataNascimento, descricao};
+    let pet = {nome, doador, especie, raca, sexo, dataNascimento, descricao, imagemUrl};
     // console.log(pet);
     return this.http.post(this.url + "/pets/cadastrar", pet);
   }
 
-  getPetById(): Observable<Pet[]> {
-    return this.http.get<Pet[]>('https://pi-grupo6-test.herokuapp.com/pet/id');
+  getPetById(id: number): Observable<Pet> {
+    return this.http.get<Pet>('https://pi-grupo6-test.herokuapp.com/pet/id/' + id);
   }
 }
 

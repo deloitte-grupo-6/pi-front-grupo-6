@@ -48,7 +48,7 @@ h4 {
 #form-container form .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
@@ -99,4 +99,18 @@ input::-webkit-file-upload-button {
   color: white;
   margin-top: 5px;
   margin-left: 5px;
+}
+
+.image{
+  display: flex;
+  max-width: 100%;
+  padding: 0;
+}
+
+.image input{
+  align-self: center;
+}
+
+img{
+  height: 100px;
 }

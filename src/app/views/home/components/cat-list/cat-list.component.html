@@ -2,7 +2,7 @@
   <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 g-3">
     <div class="col" *ngFor="let cat of petList">
       <div class="card shadow-sm align-items-center" *ngIf="cat">
-        <img src="../../../../../assets/images/cat1.png" class="card-img-top" alt="imagem">
+        <img src="{{cat.imagemUrl}}" class="card-img-top" alt="imagem">
 
         <h2><b>{{cat.nome}}</b></h2>
         <p>{{cat.raca}}, {{cat.sexo}}, {{idadeGatoPelaDataDeNascimento(cat.dataNascimento)}}</p>

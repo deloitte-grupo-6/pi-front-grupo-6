@@ -27,6 +27,8 @@ export class CategoryComponent implements OnInit {
     },
   ];
 
+  petList: Pet[];
+
   constructor(private petService: PetService) { }
 
   ngOnInit(): void {}
@@ -72,8 +74,6 @@ export class CategoryComponent implements OnInit {
       );
     }
   }
-
-  petList: Pet[];
 
   // getAvailablePets(){
   //   this.petService.getPets().subscribe(

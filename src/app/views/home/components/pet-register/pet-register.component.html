@@ -28,8 +28,12 @@
     <label for="descricao">Descrição</label>
     <textarea type="text" name="descricao" id="descricao" placeholder="Escreva algo sobre o pet" [(ngModel)]="descricao"></textarea>
 
-    <input id="choose" type="file">
-    <button class="submit" type="submit">Enviar</button>
+    <div class="image">
+      <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)">
+      <img src="{{url}}">
+    </div>
+    <!-- <input id="choose" type="file">
+    <button class="submit" type="submit">Enviar</button> -->
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
       <button type="button" (click)="petRegister()">Cadastrar</button>

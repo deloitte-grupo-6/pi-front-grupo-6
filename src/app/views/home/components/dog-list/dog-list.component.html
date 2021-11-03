@@ -2,7 +2,8 @@
   <div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 g-3">
     <div class="col" *ngFor="let dog of petList">
       <div class="card shadow-sm align-items-center" *ngIf="dog">
-        <img src="../../../../../assets/images/dog1.png" class="card-img-top p-5" alt="imagem">
+        <!-- <img src="../../../../../assets/images/dog1.png" class="card-img-top p-5" alt="imagem"> -->
+        <img src="{{dog.imagemUrl}}" class="card-img-top p-5" alt="imagem">
 
         <h2><b>{{dog.nome}}</b></h2>
         <p>{{dog.raca}}, {{dog.sexo}}, {{idadeCachorroPelaDataDeNascimento(dog.dataNascimento)}}</p>
