@@ -40,7 +40,7 @@ export class PetService {
   }
 
   getPetById(id: number): Observable<Pet> {
-    return this.http.get<Pet>('https://pi-grupo6-test.herokuapp.com/pet/id/' + id);
+    return this.http.get<Pet>(this.url +'/pet/id/' + id);
   }
 }
 
