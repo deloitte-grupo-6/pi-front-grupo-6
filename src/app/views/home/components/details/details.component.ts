@@ -12,6 +12,9 @@ export class DetailsComponent implements OnInit {
   @Output() petById: Pet;
 
   booleanAdoptModal: boolean = false;
+  booleanPetRegister: boolean = false;
+  booleanRegister: boolean = false;
+  booleanLogin: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,5 +45,29 @@ export class DetailsComponent implements OnInit {
 
   cancelAdoptModal() {
     this.booleanAdoptModal = false;
+  }
+
+  modalPetRegister() {
+    this.booleanPetRegister = true;
+  }
+
+  cancelModalPetRegister() {
+    this.booleanPetRegister = false;
+  }
+
+  modalRegister() {
+    this.booleanRegister = true;
+  }
+
+  cancelModalRegister() {
+    this.booleanRegister = false;
+  }
+
+  modalLogin() {
+    this.booleanLogin = true;
+  }
+
+  cancelModalLogin() {
+    this.booleanLogin = false;
   }
 }
