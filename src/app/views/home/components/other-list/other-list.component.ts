@@ -19,7 +19,26 @@ export class OtherListComponent implements OnInit {
     let month = moment().diff(dataNascimento, 'months', true) - ano * 12;
     let mes = Math.floor(month);
     if (ano == 0) {
+      if(mes == 1){
+        return mes + ' mês';
+      }
       return mes + ' meses';
+    }
+    else if (mes == 0){
+      if(ano == 1){
+        return ano + ' ano';
+      }
+      return ano + ' anos';
+    }
+
+    if(ano == 1 && mes == 1){
+      return ano + ' ano e ' + mes + ' mês';
+    }
+    else if(ano == 1){
+      return ano + ' ano e ' + mes + ' meses';
+    }
+    else if(mes == 1){
+      return ano + ' anos e ' + mes + ' mês';
     }
     return ano + ' anos e ' + mes + ' meses';
   }
