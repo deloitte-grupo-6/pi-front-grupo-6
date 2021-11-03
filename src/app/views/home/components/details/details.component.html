@@ -1,11 +1,13 @@
 <app-nav-bar (showPetRegisterModal)="modalPetRegister()" (showRegisterModal)="modalRegister()"
   (showLoginModal)="modalLogin()"></app-nav-bar>
-<div class="container">
-<app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal" [petById]="petById">
-</app-adoption>
+  <app-pet-register (hidePetRegister)="cancelModalPetRegister()" *ngIf="booleanPetRegister"></app-pet-register>
+  <app-register (hideRegister)="cancelModalRegister()" *ngIf="booleanRegister"></app-register>
+  <app-login (hideLogin)="cancelModalLogin()" *ngIf="booleanLogin"></app-login>
+  <app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal" [petById]="petById">
+  </app-adoption>
   <div class="info">
     <div class="text">
-      <p>Nome: {{petById.nome}}</p>
+      <h1>{{petById.nome}}</h1>
       <p>Espécie: {{petById.especie}}</p>
       <p>Raça: {{petById.raca}}</p>
       <p>Sexo: {{petById.sexo}}</p>
@@ -19,5 +21,4 @@
   <div class="button">
     <button type=button (click)="modalAdopt()">Quero adotar!</button>
   </div>
-</div>
 <app-footer></app-footer>
