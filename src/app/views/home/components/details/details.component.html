@@ -1,6 +1,8 @@
 <app-adoption (hideAdoption)="cancelAdoptModal()" *ngIf="booleanAdoptModal">
 </app-adoption>
 <div class="container">
-  <!-- {{petById.nome}} -->
+  {{petById.nome}}
+  {{petById.raca}}
+  <img src="{{petById.imagemUrl}}" alt="">
   <button type=button (click)="modalAdopt()">Quero adotar!</button>
 </div>

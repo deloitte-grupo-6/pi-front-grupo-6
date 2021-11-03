@@ -10,5 +10,6 @@ export class Pet {
     sexo: string;
     dataNascimento: Date;
     descricao: string;
+    imagemUrl: string;
 
 }
