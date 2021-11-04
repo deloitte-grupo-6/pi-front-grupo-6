@@ -19,6 +19,10 @@ h4 {
   text-align: center;
 }
 
+.error {
+  color: red;
+}
+
 #form-container form {
   /* background-color: #a2e7d8;  */
   background-color: #a9e4d7;
@@ -63,4 +67,12 @@ h4 {
   font: bold 15px arial, sans-serif;
   text-shadow: none;
   color: white;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.form-control.ng-touched.ng-valid {
+  border: 1px solid green;
 }

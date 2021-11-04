@@ -1,42 +1,65 @@
 <div id="form-container">
-  <form>
+  <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
     <h4>CADASTRO DE PET</h4>
-    <label for="nome">
-      Nome
-      <input type="text" name="nome" id="nome" placeholder="Digite o nome do pet" [(ngModel)]="nome">
-    </label>
+    <label for="nome">Nome</label>
+    <input class="form-control" type="text" formControlName="nome" id="nome" placeholder="Digite o nome do pet"
+      [(ngModel)]="nome">
+    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+      <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
+      <small class="error" *ngIf="name.errors?.pattern">*Informe somente letras</small>
+      <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 50 letras</small>
+    </div>
     <label for="especie">Especie</label>
-    <select name="Especie" [(ngModel)]="especie">
+    <select name="Especie" [(ngModel)]="especie" formControlName="especie">
       <option value="CACHORRO">Cachorro</option>
       <option value="GATO">Gato</option>
       <option value="OUTROS">Outros</option>
     </select>
-    <label for="raca">
-      Raça
-      <input type="text" name="raca" id="raca" placeholder="Digite a raça do pet" [(ngModel)]="raca">
-    </label>
+    <div *ngIf="specie.invalid && (specie.touched || specie.dirty)">
+      <small class="error" *ngIf="specie.errors?.required">*Por favor selecione uma espécie</small>
+    </div>
+    <label for="raca">Raça</label>
+    <input type="text" formControlName="raca" id="raca" placeholder="Digite a raça do pet" [(ngModel)]="raca">
+    <div *ngIf="breed.invalid && (breed.touched || breed.dirty)">
+      <small class="error" *ngIf="breed.errors?.required">*Raça é um campo obrigatório</small>
+      <small class="error" *ngIf="breed.errors?.pattern">*Informe somente letras</small>
+      <small class="error" *ngIf="breed.errors?.minlength">*Mínimo de 3 letras</small>
+      <small class="error" *ngIf="breed.errors?.maxlength">*Máximo de 20 letras</small>
+    </div>
     <label for="sexo">Sexo</label>
-    <select name="Sexo" [(ngModel)]="sexo">
+    <select name="Sexo" [(ngModel)]="sexo" formControlName="sexo">
       <option value="MACHO">Macho</option>
       <option value="FEMEA">Fêmea</option>
       <option value="OUTRO">Outro</option>
     </select>
-    <label for="nascimento">
-      Nascimento
-      <input type="date" name="nascimento" id="nascimento" placeholder="Digite a data de nascimento do pet" [(ngModel)]="dataNascimento">
-    </label>
+    <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
+      <small class="error" *ngIf="gender.errors?.required">*Por favor selecione o sexo do pet</small>
+    </div>
+    <label for="nascimento">Nascimento</label>
+    <input type="date" formControlName="dataNascimento" id="nascimento" placeholder="Digite a data de nascimento do pet"
+      [(ngModel)]="dataNascimento">
+    <div *ngIf="birthdate.invalid && (birthdate.touched ||birthdate.dirty)">
+      <small class="error" *ngIf="birthdate.errors?.required">*Por favor selecione a data de nascimento do pet</small>
+    </div>
     <label for="descricao">Descrição</label>
-    <textarea type="text" name="descricao" id="descricao" placeholder="Escreva algo sobre o pet" [(ngModel)]="descricao"></textarea>
-
+    <textarea type="text" formControlName="descricao" id="descricao" placeholder="Escreva algo sobre o pet"
+      [(ngModel)]="descricao"></textarea>
+    <div *ngIf="description.invalid && (description.touched || description.dirty)">
+      <small class="error" *ngIf="description.errors?.maxlength(500)">*Máximo de 500 caracteres</small>
+    </div>
     <div class="image">
-      <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)">
+      <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)"
+        formControlName="imagemUrl">
       <img src="{{url}}">
+      <div *ngIf="image.invalid && (image.touched || image.dirty)">
+        <small class="error" *ngIf="image.errors?.required">*Por favor selecione uma foto do pet</small>
+      </div>
     </div>
     <!-- <input id="choose" type="file">
     <button class="submit" type="submit">Enviar</button> -->
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
-      <button type="button" (click)="petRegister()">Cadastrar</button>
+      <button type="button" (click)="petRegister()" [disabled]="!registerForm.valid">Cadastrar</button>
     </div>
   </form>
 </div>
