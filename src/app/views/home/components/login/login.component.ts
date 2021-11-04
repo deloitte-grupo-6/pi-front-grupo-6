@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,26 @@ export class LoginComponent implements OnInit {
   email = '';
   senha = '';
   showError: boolean = false;
+  loginForm: FormGroup;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.minLength(6),
+          Validators.maxLength(50),
+        ],
+      ],
+      senha: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
 
-  onSubmitLogin(form){
+  onSubmitLogin(){
     console.log("Realizando Login");
     let observable = this.userService.loginUser(this.email, this.senha);
 
@@ -33,6 +48,18 @@ export class LoginComponent implements OnInit {
         }
       }
     )
+  }
+  
+  // onSubmitLogin() {
+  //   console.log(this.loginForm.value);
+  //   this.loginForm.reset();
+  // }
+
+  get emailaddress() {
+    return this.loginForm.get('email');
+  }
+  get password() {
+    return this.loginForm.get('senha');
   }
 
   onBtnCancelLogin() {

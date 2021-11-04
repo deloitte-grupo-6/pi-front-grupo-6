@@ -1,17 +1,24 @@
 <div id="form-container">
-  <form #f="ngForm" (ngSubmit)="onSubmitLogin(f)">
+  <form (ngSubmit)="onSubmitLogin()" [formGroup]="loginForm">
     <h4>QUE BOM QUE VOCÊ VOLTOU</h4>
-    <label for="text">
-      E-mail
-      <input type="email" name="email" id="email" placeholder="Digite seu e-mail" [(ngModel)]="email">
-    </label>
-    <label for="text">
-      Senha
-      <input type="password" name="senha" id="senha" placeholder="Digite sua senha" [(ngModel)]="senha">
-    </label>
+    <label for="text">E-mail</label>
+    <input type="email" formControlName="email" id="email" placeholder="Digite seu e-mail">
+    <div *ngIf="emailaddress.invalid && (emailaddress.touched || emailaddress.dirty)">
+      <small class="error" *ngIf="emailaddress.errors?.required">*Email é um campo obrigatório</small>
+      <small class="error" *ngIf="emailaddress.errors?.email">*Por favor informe um email válido</small>
+      <small class="error" *ngIf="emailaddress.errors?.minlength">*Mínimo de 6 letras</small>
+      <small class="error" *ngIf="emailaddress.errors?.maxlength">*Máximo de 50 letras</small>
+    </div>
+    <label for="text">Senha</label>
+    <input type="password" formControlName="senha" id="senha" placeholder="Digite sua senha">
+    <div *ngIf="password.invalid && (password.touched || password.dirty)">
+      <small class="error" *ngIf="password.errors?.required">*Senha é um campo obrigatório</small>
+      <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
+
+    </div>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelLogin()">Cancelar</button>
-      <button type="submit">Entrar</button>
+      <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
     </div>
     <div class="error" *ngIf="showError">
       Login ou senha inválidos
