@@ -35,7 +35,6 @@ export class PetRegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-zA-Z]*'),
           Validators.minLength(3),
           Validators.maxLength(20),
         ],

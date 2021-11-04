@@ -23,6 +23,10 @@ h1 {
   text-align: justify;
 }
 
+.image {
+  display: fixed;
+}
+
 .image img {
   width: 100%;
   /* max-width: 100%; */
