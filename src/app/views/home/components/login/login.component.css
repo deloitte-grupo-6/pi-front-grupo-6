@@ -13,10 +13,14 @@
   transition: opacity 3s linear;
 }
 
-h4{
+h4 {
   color: rgb(78, 38, 116);
   align-self: center;
   text-align: center;
+}
+
+.error {
+  color: red;
 }
 
 #form-container form {
