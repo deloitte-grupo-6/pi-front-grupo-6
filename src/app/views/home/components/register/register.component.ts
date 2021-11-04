@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
           Validators.minLength(2),
           Validators.maxLength(100),
         ],
-        // this.checkValid
       ],
 
       email: [
