@@ -62,3 +62,12 @@ h4{
   text-shadow: none;
   color: white;
 }
+
+.error{
+  background-color: rgba(201, 4, 4, 0.753);
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 20px;
+}

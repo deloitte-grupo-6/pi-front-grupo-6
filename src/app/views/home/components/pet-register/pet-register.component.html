@@ -6,7 +6,6 @@
       [(ngModel)]="nome">
     <div *ngIf="name.invalid && (name.touched || name.dirty)">
       <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
-      <small class="error" *ngIf="name.errors?.pattern">*Informe somente letras</small>
       <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 50 letras</small>
     </div>
     <label for="especie">Especie</label>

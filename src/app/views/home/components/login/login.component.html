@@ -3,15 +3,18 @@
     <h4>QUE BOM QUE VOCÊ VOLTOU</h4>
     <label for="text">
       E-mail
-      <input type="email" name="email" id="email" placeholder="Digite seu e-mail" ngModel>
+      <input type="email" name="email" id="email" placeholder="Digite seu e-mail" [(ngModel)]="email">
     </label>
     <label for="text">
       Senha
-      <input type="password" name="senha" id="senha" placeholder="Digite sua senha" ngModel>
+      <input type="password" name="senha" id="senha" placeholder="Digite sua senha" [(ngModel)]="senha">
     </label>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelLogin()">Cancelar</button>
       <button type="submit">Entrar</button>
+    </div>
+    <div class="error" *ngIf="showError">
+      Login ou senha inválidos
     </div>
   </form>
 </div>

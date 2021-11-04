@@ -16,6 +16,7 @@ import { UserService } from '../../services/user.service';
 })
 export class RegisterComponent implements OnInit {
   @Output() hideRegister = new EventEmitter();
+  @Output() redirectLogin = new EventEmitter();
 
   registerForm: FormGroup;
 
@@ -43,7 +44,6 @@ export class RegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('[a-zA-Z]*'),
           Validators.minLength(2),
           Validators.maxLength(100),
         ],
@@ -131,9 +131,10 @@ export class RegisterComponent implements OnInit {
 
     observable.subscribe({
       next: (data) => {
-        // window.sessionStorage.setItem("token", (<response>data).token);
         console.log(data);
+        // window.sessionStorage.setItem("token", (<response>data).token);
         this.hideRegister.emit();
+        this.redirectLogin.emit();
         alert('Usuário cadastrado com sucesso');
       },
       error: (err) => console.log(err),
