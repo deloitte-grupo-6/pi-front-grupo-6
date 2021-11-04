@@ -17,7 +17,7 @@ import { DogListComponent } from './views/home/components/dog-list/dog-list.comp
 import { CatListComponent } from './views/home/components/cat-list/cat-list.component';
 import { OtherListComponent } from './views/home/components/other-list/other-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetsListComponent } from './views/home/components/pets-list/pets-list.component';
 import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
 import { DetailsComponent } from './views/home/components/details/details.component';
@@ -42,7 +42,14 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     PetRegisterComponent,
     DetailsComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, AlifeFileToBase64Module],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
+    AlifeFileToBase64Module,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
