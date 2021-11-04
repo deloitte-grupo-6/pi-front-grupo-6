@@ -55,8 +55,6 @@
         <small class="error" *ngIf="image.errors?.required">*Por favor selecione uma foto do pet</small>
       </div>
     </div>
-    <!-- <input id="choose" type="file">
-    <button class="submit" type="submit">Enviar</button> -->
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
       <button type="button" (click)="petRegister()" [disabled]="!registerForm.valid">Cadastrar</button>
