@@ -1,8 +1,15 @@
 .container {
   background-color: rgba(226, 224, 231, 0.5);
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+}
+
+.sidebar{
+  width: 100%;
+  max-width: 300px;
 }
 
 i {
@@ -32,15 +39,6 @@ nav ul li {
   color: rgb(109, 54, 161);
 }
 
-/* {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: rgb(109, 54, 161);
-} */
-
 .conta,
 .meus-pets,
 .lista-interesse {
@@ -51,10 +49,12 @@ nav ul li {
 }
 
 .conta {
-  display: flex;
+  /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
   /* transition: opacity 3s linear; */
+  margin: 20px;
+  /* right: 0; */
 }
 
 .error {
@@ -68,6 +68,7 @@ nav ul li {
   box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
   width: 400px;
   border-radius: 10px;
+  margin-left: 50px;
 }
 
 .conta form label {
@@ -108,27 +109,24 @@ nav ul li {
   color: white;
 }
 
-/* .conta.ng-touched.ng-invalid {
-  border: 1px solid red;
+.conteudo{
+  width: 100%;
+  max-width: 600px;
 }
 
-.conta.ng-touched.ng-valid {
-  border: 1px solid green;
-} */
-
 .petCadastrado {
-  background-color: rgba(226, 224, 231, 0.5);
+  /* background-color: rgba(226, 224, 231, 0.7); */
+  background-color: #a9e4d7;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
-  padding: 50px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 14px;
   color: rgb(124, 91, 155);
   font-weight: bold;
-  margin: 20px 20px 0px 20px;
-  width: 100%;
+  margin: 20px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  border-radius: 10px;
 }
 
 h1 {
@@ -137,17 +135,19 @@ h1 {
 
 .petCadastrado .text {
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
   text-align: justify;
+  padding: 15px;
 }
 
 .image {
-  display: fixed;
+  /* display: fixed; */
+  padding: 15px;
 }
 
 .image img {
   width: 100%;
-  max-width: 400px;
-  height: 100%;
-  max-height: 500px;
+  max-width: 200px;
+  /* height: 100%; */
+  /* max-height: 500px; */
 }
