@@ -7,7 +7,7 @@ import { Pet } from '../interfaces/pet';
   providedIn: 'root',
 })
 export class PetService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private readonly url = 'https://api-g6.herokuapp.com';
 
@@ -52,14 +52,16 @@ export class PetService {
     };
     let token = window.sessionStorage.getItem('token');
     // console.log(pet);
-    return this.http.post(this.url + '/pets/cadastrar', pet, {headers:{Authorization:'Bearer ${token}'}});
+    return this.http.post(this.url + '/pets/cadastrar', pet, { headers: { Authorization: 'Bearer ${token}' } });
   }
 
   getPetById(id: number): Observable<Pet> {
-    return this.http.get<Pet>(this.url + '/pets/id/' + id);
+    let token = window.sessionStorage.getItem('token');
+    return this.http.get<Pet>(this.url + '/pets/id/' + id, { headers: { Authorization: 'Bearer ${token}' } });
   }
 
-  addPetToTheList(petId: number, email: string){
-    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, '');
+  addPetToTheList(petId: number, email: string) {
+    let token = window.sessionStorage.getItem('token');
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: 'Bearer ${token}' } });
   }
 }

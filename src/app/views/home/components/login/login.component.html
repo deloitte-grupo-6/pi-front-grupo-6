@@ -14,8 +14,8 @@
     <div *ngIf="password.invalid && (password.touched || password.dirty)">
       <small class="error" *ngIf="password.errors?.required">*Senha é um campo obrigatório</small>
       <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
-
     </div>
+    <p>Não tem uma conta?<b (click)="showRegisterFromLogin()"> REGISTRE-SE AQUI</b></p>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelLogin()">Cancelar</button>
       <button type="submit" [disabled]="loginForm.invalid">Entrar</button>

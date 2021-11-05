@@ -76,3 +76,9 @@ h4 {
   font-weight: 700;
   margin-top: 20px;
 }
+
+p{
+  color: rgb(78, 38, 116);
+  margin-top: 10px;
+  cursor: pointer;
+}
