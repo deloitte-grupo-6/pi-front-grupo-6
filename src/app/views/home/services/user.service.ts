@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private readonly url = 'https://api-g6.herokuapp.com';
 
-  constructor(private https: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   registerUser(
     nome: string,
@@ -19,12 +19,12 @@ export class UserService {
   ) {
     let user = { nome, email, contato, documento, cidade, senha };
 
-    return this.https.post(this.url + '/usuarios/cadastrar', user);
+    return this.http.post(this.url + '/usuarios/cadastrar', user);
   }
 
   loginUser(email: string, senha: string) {
     // MUDAR O ENDEREÇO DO ENDPOINT PARA O CORRETO
-    return this.https.post(
+    return this.http.post(
       this.url + '/usuarios/login',
       { email, senha },
       { observe: 'response' }

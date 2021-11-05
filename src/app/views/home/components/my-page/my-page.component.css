@@ -2,6 +2,7 @@
   background-color: rgba(226, 224, 231, 0.5);
   height: 100%;
   width: 100%;
+  display: flex;
 }
 
 i {
@@ -13,11 +14,10 @@ i {
 
 nav ul {
   list-style-type: none;
-  padding-top: 50px;
 }
 
 nav ul li {
-  padding: 50px 50px 50px 10px;
+  margin: 50px 50px 50px 10px;
 }
 
 .minha-conta,
