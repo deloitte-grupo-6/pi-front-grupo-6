@@ -6,3 +6,12 @@
 .btn {
   margin-left: 16px;
 }
+
+i {
+  margin-left: 16px;
+  font-size: 30px;
+}
+
+.xis .tooltip-inner {
+  background-color: rgb(78, 38, 116);
+}

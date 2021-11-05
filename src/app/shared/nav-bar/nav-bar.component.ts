@@ -11,8 +11,10 @@ export class NavBarComponent implements OnInit {
   static showPetRegisterModal = new EventEmitter();
   static showPetButton = new EventEmitter();
   static hidePetButton = new EventEmitter();
+  static showMyPageModal = new EventEmitter();
 
   booleanPetRegister: boolean;
+  booleanMyPage: boolean;
 
   constructor() {
     NavBarComponent.showPetButton.subscribe(
@@ -22,11 +24,13 @@ export class NavBarComponent implements OnInit {
     NavBarComponent.hidePetButton.subscribe(
       () => this.booleanPetRegister = false
     )
+
+    NavBarComponent.showMyPageModal.subscribe(
+      () => (this.booleanMyPage = true)
+    );
   }
 
   ngOnInit(): void {}
-
-  
 
   onPetRegisterClick() {
     NavBarComponent.showPetRegisterModal.emit();
@@ -38,5 +42,9 @@ export class NavBarComponent implements OnInit {
 
   onLoginClick() {
     NavBarComponent.showLoginModal.emit();
+  }
+
+  onMyPageClick() {
+    NavBarComponent.showMyPageModal.emit();
   }
 }

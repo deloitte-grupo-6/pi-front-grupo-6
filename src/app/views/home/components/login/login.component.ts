@@ -18,7 +18,10 @@ export class LoginComponent implements OnInit {
   showError: boolean = false;
   loginForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
