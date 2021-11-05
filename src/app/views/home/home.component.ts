@@ -11,28 +11,28 @@ export class HomeComponent implements OnInit {
   booleanPetRegister: boolean = false;
   booleanRegister: boolean = false;
   booleanLogin: boolean = false;
+  booleanMyPage: boolean = false;
   booleanDogList: boolean = false;
   booleanCatList: boolean = false;
   booleanOtherList: boolean = false;
 
   constructor() {
-
     NavBarComponent.showPetRegisterModal.subscribe(
-      () => this.booleanPetRegister = true
-    )
+      () => (this.booleanPetRegister = true)
+    );
 
     NavBarComponent.showRegisterModal.subscribe(
-      () => this.booleanRegister = true
-    )
+      () => (this.booleanRegister = true)
+    );
 
-    NavBarComponent.showLoginModal.subscribe(
-      () => this.booleanLogin = true
-    )
+    NavBarComponent.showLoginModal.subscribe(() => (this.booleanLogin = true));
 
+    NavBarComponent.showMyPageModal.subscribe(
+      () => (this.booleanMyPage = true)
+    );
   }
 
   ngOnInit(): void {}
-
 
   cancelModalPetRegister() {
     this.booleanPetRegister = false;

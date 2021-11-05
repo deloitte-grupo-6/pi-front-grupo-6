@@ -11,6 +11,9 @@
         Cadastre-se
       </button>
       <button class="btn btn btn-outline-light" type="button" (click)="onLoginClick()">Log in</button>
+      <i class="bi bi-person-circle" type="button" (click)="onMyPageClick()" *ngIf="booleanMyPage" placement="bottom"
+        ngbTooltip="Minha página" [routerLink]="['/minhapagina']"></i>
+
     </div>
   </div>
 </nav>

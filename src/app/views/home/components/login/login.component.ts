@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
   showError: boolean = false;
   loginForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,27 +37,23 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmitLogin(){
-    console.log("Realizando Login");
-    console.log(this.email + " " + this.senha);
+  onSubmitLogin() {
+    console.log('Realizando Login');
+    console.log(this.email + ' ' + this.senha);
     let observable = this.userService.loginUser(this.email, this.senha);
-    
-    observable.subscribe(
-      {
-        next: response =>{
-          const token = response.headers.get('Authorization');
-          console.log(token);
-          window.sessionStorage.setItem("token", token);
-          this.hideLogin.emit();
-          NavBarComponent.showPetButton.emit();
-        },
-        error: err => {
-          this.showError = true;
-        }
-      }
-    )
 
-    
+    observable.subscribe({
+      next: (response) => {
+        const token = response.headers.get('Authorization');
+        console.log(token);
+        window.sessionStorage.setItem('token', token);
+        this.hideLogin.emit();
+        NavBarComponent.showPetButton.emit();
+      },
+      error: (err) => {
+        this.showError = true;
+      },
+    });
 
     // observable.subscribe(
     //   {
@@ -74,17 +73,15 @@ export class LoginComponent implements OnInit {
     //   // const headers = keys.map(key =>
     //     // `${key}: ${response.headers.get(key)}`);
     //     const header = response.headers.keys();
-    
+
     //    console.table(header);
     // })
 
     // observable.subscribe(response => {
     //   console.log(response.headers.get('Authorization'));
     // })
-    
-
   }
-  
+
   // onSubmitLogin() {
   //   console.log(this.loginForm.value);
   //   this.loginForm.reset();
@@ -100,5 +97,6 @@ export class LoginComponent implements OnInit {
   onBtnCancelLogin() {
     this.hideLogin.emit();
     NavBarComponent.showPetButton.emit();
+    NavBarComponent.showMyPageModal.emit();
   }
 }
