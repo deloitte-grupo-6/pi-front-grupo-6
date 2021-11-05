@@ -25,6 +25,7 @@ export class DetailsComponent implements OnInit {
 
   id: number;
   petParaIdade: Pet;
+  emailToken: string; //******TEMOS QUE PEGAR A PARTIR DO TOKEN*****
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -43,6 +44,12 @@ export class DetailsComponent implements OnInit {
 
   modalAdopt() {
     this.booleanAdoptModal = true;
+    let observable = this.petService.addPetToTheList(this.id, this.emailToken);
+
+    observable.subscribe(
+      (data) => console.log(data),
+      (err) => console.log(err)
+    )
   }
 
   cancelAdoptModal() {

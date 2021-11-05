@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 import { Pet } from './interfaces/pet';
 
 @Component({
@@ -14,28 +15,31 @@ export class HomeComponent implements OnInit {
   booleanCatList: boolean = false;
   booleanOtherList: boolean = false;
 
-  constructor() {}
+  constructor() {
+
+    NavBarComponent.showPetRegisterModal.subscribe(
+      () => this.booleanPetRegister = true
+    )
+
+    NavBarComponent.showRegisterModal.subscribe(
+      () => this.booleanRegister = true
+    )
+
+    NavBarComponent.showLoginModal.subscribe(
+      () => this.booleanLogin = true
+    )
+
+  }
 
   ngOnInit(): void {}
 
-  modalPetRegister() {
-    this.booleanPetRegister = true;
-  }
 
   cancelModalPetRegister() {
     this.booleanPetRegister = false;
   }
 
-  modalRegister() {
-    this.booleanRegister = true;
-  }
-
   cancelModalRegister() {
     this.booleanRegister = false;
-  }
-
-  modalLogin() {
-    this.booleanLogin = true;
   }
 
   cancelModalLogin() {

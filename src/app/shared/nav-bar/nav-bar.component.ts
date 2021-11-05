@@ -6,23 +6,32 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  @Output() showRegisterModal = new EventEmitter();
-  @Output() showLoginModal = new EventEmitter();
-  @Output() showPetRegisterModal = new EventEmitter();
+  static showRegisterModal = new EventEmitter();
+  static showLoginModal = new EventEmitter();
+  static showPetRegisterModal = new EventEmitter();
+  static showPetButton = new EventEmitter();
 
-  constructor() {}
+  booleanPetRegister: boolean;
+
+  constructor() {
+    NavBarComponent.showPetButton.subscribe(
+      () => this.booleanPetRegister = true
+    )
+  }
 
   ngOnInit(): void {}
 
+  
+
   onPetRegisterClick() {
-    this.showPetRegisterModal.emit();
+    NavBarComponent.showPetRegisterModal.emit();
   }
 
   onRegisterClick() {
-    this.showRegisterModal.emit();
+    NavBarComponent.showRegisterModal.emit();
   }
 
   onLoginClick() {
-    this.showLoginModal.emit();
+    NavBarComponent.showLoginModal.emit();
   }
 }

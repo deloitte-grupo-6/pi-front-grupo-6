@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
-import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,10 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean | UrlTree {
     
-      if(typeof window.sessionStorage.getItem('token') !== "string"){
-        this.router.parseUrl("/");
+      if(typeof window.sessionStorage.getItem("token") !== "string"){
+        console.log("Redirecionando")
+        // NavBarComponent.showLoginModal.emit();
+        return this.router.parseUrl('');
       }
       else{
         return true

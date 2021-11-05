@@ -1,5 +1,4 @@
-<app-nav-bar (showPetRegisterModal)="modalPetRegister()" (showRegisterModal)="modalRegister()"
-  (showLoginModal)="modalLogin()"></app-nav-bar>
+<app-nav-bar></app-nav-bar>
 <div class="container py-5" id="main-container">
   <app-pet-register (hidePetRegister)="cancelModalPetRegister()" *ngIf="booleanPetRegister"></app-pet-register>
   <app-register (hideRegister)="cancelModalRegister()" (redirectLogin)="modalLogin()" *ngIf="booleanRegister"></app-register>

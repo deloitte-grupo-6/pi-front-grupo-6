@@ -50,11 +50,16 @@ export class PetService {
       descricao,
       imagemUrl,
     };
+    let token = window.sessionStorage.getItem('token');
     // console.log(pet);
-    return this.http.post(this.url + '/pets/cadastrar', pet);
+    return this.http.post(this.url + '/pets/cadastrar', pet, {headers:{Authorization:'Bearer ${token}'}});
   }
 
   getPetById(id: number): Observable<Pet> {
     return this.http.get<Pet>(this.url + '/pets/id/' + id);
+  }
+
+  addPetToTheList(petId: number, email: string){
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, '');
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-login',
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
           console.log(token);
           window.sessionStorage.setItem("token", token);
           this.hideLogin.emit();
+          NavBarComponent.showPetButton.emit();
         },
         error: err => {
           this.showError = true;
@@ -97,5 +99,6 @@ export class LoginComponent implements OnInit {
 
   onBtnCancelLogin() {
     this.hideLogin.emit();
+    NavBarComponent.showPetButton.emit();
   }
 }
