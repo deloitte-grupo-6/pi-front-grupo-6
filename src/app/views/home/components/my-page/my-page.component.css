@@ -14,6 +14,7 @@ i {
 
 nav ul {
   list-style-type: none;
+  width: 100%;
 }
 
 nav ul li {
@@ -47,4 +48,106 @@ nav ul li {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
+}
+
+.conta {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* transition: opacity 3s linear; */
+}
+
+.error {
+  color: red;
+}
+
+.conta form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 400px;
+  border-radius: 10px;
+}
+
+.conta form label {
+  color: rgb(78, 38, 116);
+  font-size: 17px;
+  width: 100%;
+  padding: 3px;
+  align-self: flex-start;
+}
+
+.conta form input {
+  display: block;
+  width: 100%;
+  background-color: #bfdfd8;
+  border: none;
+  color: rgb(109, 54, 161);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.conta form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.conta form .buttons button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+}
+
+/* .conta.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.conta.ng-touched.ng-valid {
+  border: 1px solid green;
+} */
+
+.petCadastrado {
+  background-color: rgba(226, 224, 231, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: rgb(124, 91, 155);
+  font-weight: bold;
+  margin: 20px 20px 0px 20px;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.petCadastrado .text {
+  width: 100%;
+  max-width: 600px;
+  text-align: justify;
+}
+
+.image {
+  display: fixed;
+}
+
+.image img {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 500px;
 }

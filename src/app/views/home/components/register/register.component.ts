@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -133,7 +134,8 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         // window.sessionStorage.setItem("token", (<response>data).token);
         this.hideRegister.emit();
-        this.redirectLogin.emit();
+        // this.redirectLogin.emit();
+        NavBarComponent.showLoginModal.emit();
         alert('Usuário cadastrado com sucesso');
       },
       error: (err) => console.log(err),

@@ -1,3 +1,5 @@
+import { Pet } from "./pet";
+
 export interface User {
   id: number;
   nome: string;
@@ -5,4 +7,6 @@ export interface User {
   cidade: string;
   email: string;
   documento: string;
+  petsEmDoacao: Pet[];
+  petsInteressados: Pet[];
 }
