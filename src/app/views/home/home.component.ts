@@ -31,7 +31,13 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(typeof window.sessionStorage.getItem('token') == "string"){
+      NavBarComponent.showPetButton.emit();
+    } else{
+      NavBarComponent.hidePetButton.emit();
+    }
+  }
 
 
   cancelModalPetRegister() {

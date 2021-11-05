@@ -50,9 +50,9 @@
       <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)"
         formControlName="imagemUrl">
       <img src="{{url}}">
-      <div *ngIf="image.invalid && (image.touched || image.dirty)">
+      <!-- <div *ngIf="image.invalid && (image.touched || image.dirty)">
         <small class="error" *ngIf="image.errors?.required">*Por favor selecione uma foto do pet</small>
-      </div>
+      </div> -->
     </div>
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>

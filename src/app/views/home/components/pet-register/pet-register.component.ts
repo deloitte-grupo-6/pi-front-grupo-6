@@ -19,6 +19,7 @@ export class PetRegisterComponent implements OnInit {
   sexo = '';
   dataNascimento = '';
   descricao = '';
+  idDoador: number;
 
   // fileToUpload: File;
   url: string;
@@ -42,10 +43,10 @@ export class PetRegisterComponent implements OnInit {
       especie: ['', Validators.required],
       sexo: ['', Validators.required],
       dataNascimento: ['', Validators.required],
-      imagemUrl: ['', Validators.required],
       descricao: [Validators.maxLength(500)],
     });
   }
+  //       imagemUrl: ['', Validators.required],
 
   onSubmitRegister() {
     console.log(this.registerForm.value);
@@ -83,6 +84,7 @@ export class PetRegisterComponent implements OnInit {
   }
 
   petRegister() {
+    this.idDoador = parseInt(window.sessionStorage.getItem('id'));
     let observable = this.petService.registerPet(
       this.nome,
       this.especie,
@@ -90,7 +92,8 @@ export class PetRegisterComponent implements OnInit {
       this.sexo,
       this.dataNascimento,
       this.descricao,
-      this.url
+      this.url,
+      this.idDoador
     );
 
     observable.subscribe({

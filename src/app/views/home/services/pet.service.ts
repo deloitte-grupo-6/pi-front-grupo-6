@@ -37,9 +37,10 @@ export class PetService {
     sexo: string,
     dataNascimento: string,
     descricao: string,
-    imagemUrl: string
+    imagemUrl: string,
+    idDoador: number
   ) {
-    let doador = { id: 2 };
+    let doador = { id: idDoador };
     let pet = {
       nome,
       doador,
@@ -51,17 +52,16 @@ export class PetService {
       imagemUrl,
     };
     let token = window.sessionStorage.getItem('token');
-    // console.log(pet);
-    return this.http.post(this.url + '/pets/cadastrar', pet, { headers: { Authorization: 'Bearer ${token}' } });
+    return this.http.post(this.url + '/pets/cadastrar', pet, {headers: {'Authorization': token}});
   }
 
   getPetById(id: number): Observable<Pet> {
     let token = window.sessionStorage.getItem('token');
-    return this.http.get<Pet>(this.url + '/pets/id/' + id, { headers: { Authorization: 'Bearer ${token}' } });
+    return this.http.get<Pet>(this.url + '/pets/id/' + id, { headers: { Authorization: token } });
   }
 
   addPetToTheList(petId: number, email: string) {
     let token = window.sessionStorage.getItem('token');
-    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: 'Bearer ${token}' } });
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: token } });
   }
 }

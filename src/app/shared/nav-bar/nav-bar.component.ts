@@ -10,12 +10,17 @@ export class NavBarComponent implements OnInit {
   static showLoginModal = new EventEmitter();
   static showPetRegisterModal = new EventEmitter();
   static showPetButton = new EventEmitter();
+  static hidePetButton = new EventEmitter();
 
   booleanPetRegister: boolean;
 
   constructor() {
     NavBarComponent.showPetButton.subscribe(
       () => this.booleanPetRegister = true
+    )
+
+    NavBarComponent.hidePetButton.subscribe(
+      () => this.booleanPetRegister = false
     )
   }
 

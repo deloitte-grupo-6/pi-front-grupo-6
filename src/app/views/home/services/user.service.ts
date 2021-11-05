@@ -17,7 +17,6 @@ export class UserService {
   }
 
   loginUser(email: string, senha: string){
-    // MUDAR O ENDEREÇO DO ENDPOINT PARA O CORRETO
-    return this.http.post(this.url + "/usuarios/login", {email, senha}, { observe: 'response'});
+    return this.http.post(this.url + "/usuarios/login", {email, senha});
   }
 }
