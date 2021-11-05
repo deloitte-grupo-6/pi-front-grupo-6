@@ -30,13 +30,18 @@ export class HomeComponent implements OnInit {
     NavBarComponent.showMyPageModal.subscribe(
       () => (this.booleanMyPage = true)
     );
+
   }
 
   ngOnInit(): void {
     if(typeof window.sessionStorage.getItem('token') == "string"){
       NavBarComponent.showPetButton.emit();
+      NavBarComponent.showMyPageModal.emit();
+      NavBarComponent.hideRegisterButton.emit();
     } else{
       NavBarComponent.hidePetButton.emit();
+      NavBarComponent.hideMyPageModal.emit();
+      NavBarComponent.showRegisterButton.emit();
     }
   }
 

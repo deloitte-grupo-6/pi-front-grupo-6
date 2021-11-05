@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit {
         window.sessionStorage.setItem("token", (<{token:string}>data).token);
         this.hideLogin.emit();
         NavBarComponent.showPetButton.emit();
+        NavBarComponent.showMyPageModal.emit();
+        NavBarComponent.hideRegisterButton.emit();
       },
       error => console.log(error)
     )
