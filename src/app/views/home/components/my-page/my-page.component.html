@@ -5,15 +5,24 @@
       <ul>
         <div class="minha-conta">
           <i class="fas fa-user-cog"></i>
-          <li type="button">Minha conta</li>
+          <li type="button" (click)="toggle()">Minha conta</li>
+          <div class="conta" *ngIf="show">
+            atualização de conta aqui
+          </div>
         </div>
         <div class="pets">
           <i class="fas fa-paw"></i>
-          <li type="button">Pets cadastrados</li>
+          <li type="button" (click)="toggle2()">Pets cadastrados</li>
+        </div>
+        <div class="meus-pets" *ngIf="show2">
+          pets cadastrados aqui
         </div>
         <div class="interesse">
           <i class="fas fa-heart"></i>
-          <li type="button">Lista de interesses</li>
+          <li type="button" (click)="toggle3()">Lista de interesses</li>
+        </div>
+        <div class="lista-interesse" *ngIf="show3">
+          lista de interesses aqui
         </div>
       </ul>
     </nav>
