@@ -127,14 +127,20 @@ export class MyPageComponent implements OnInit {
 
   toggle() {
     this.show = !this.show;
+    this.show2 = false;
+    this.show3 = false;
   }
 
   toggle2() {
     this.show2 = !this.show2;
+    this.show = false;
+    this.show3 = false;
   }
 
   toggle3() {
     this.show3 = !this.show3;
+    this.show = false;
+    this.show2 = false;
   }
 
   userUpdate() {
