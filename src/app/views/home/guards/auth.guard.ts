@@ -14,6 +14,8 @@ export class AuthGuard implements CanActivate {
       if(typeof window.sessionStorage.getItem('token') !== "string"){
         console.log("Redirecionando")
         NavBarComponent.showLoginModal.emit();
+        // return this.router.parseUrl('');
+        alert("Você precisa estar logado para acessar esta página");
         return this.router.parseUrl('');
       }
       else{

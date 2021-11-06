@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidatorFn,
@@ -17,6 +17,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./my-page.component.css'],
 })
 export class MyPageComponent implements OnInit {
+  @Input() petById: Pet;
   public show: boolean = false;
   public show2: boolean = false;
   public show3: boolean = false;
