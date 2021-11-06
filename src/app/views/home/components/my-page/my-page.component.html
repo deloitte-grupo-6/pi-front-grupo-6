@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+
 <div class="container">
   <div class="sidebar">
     <nav>
@@ -67,7 +68,7 @@
         </div>
         <label for="text">Senha</label>
         <input class="form-control" type="password" formControlName="senha" name="senha" id="senha"
-          placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="this.user.senha">
+          placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="this.senha">
         <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
           <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
           <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
@@ -81,121 +82,62 @@
     </div>
 
     <div class="meus-pets" *ngIf="show2">
-      <!--<div class="petCadastrado" *ngFor="let petDoacao of petsEmDoacao">
-        <div class="text">
-        <h1>{{petDoacao.nome}}</h1>
-        <p>Espécie: {{petDoacao.especie}}</p>
-        <p>Raça: {{petDoacao.raca}}</p>
-        <p>Sexo: {{petDoacao.sexo}}</p>
-        <p>Idade: {{idadePetPelaDataDeNascimento(petDoacao.dataNascimento)}}</p>
-        <p>Descrição: {{petDoacao.descricao}}</p>
-      </div>
-      <div class="image">
-        <img src={{petDoacao.imagemUrl}} alt=" Foto + {{petDoacao.nome}}">
-      </div> -->
-      <div class="petCadastrado">
+      <div class="petCadastrado" *ngFor="let petDoacao of this.petsEmDoacao">
         <div class="titulo">
-          <h1>LOGAN</h1>
-            <div class="botoes-pet">
-              <i class="fas fa-trash-alt"></i>
-              <i class="far fa-handshake"></i>
-              <i class="fas fa-edit"></i>
-            </div>
-            
+          <h1>{{petDoacao.nome}}</h1>
+          <div class="botoes-pet">
+            <i class="fas fa-trash-alt"></i>
+            <i class="far fa-handshake"></i>
+            <i class="fas fa-edit"></i>
+          </div>
         </div>
         <div class="text">
-          
-          
-          <p>Espécie: GATO</p>
-          <p>Raça: SRD</p>
-          <p>Sexo: MACHO</p>
-          <p>Idade: 2 ANOS</p>
-          <p>Descrição: Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint perferendis itaque! Fuga quas minima, quae repellendus quis reprehenderit recusandae consequatur impedit enim ipsum quaerat corrupti laudantium reiciendis, deleniti quidem.</p>
-        </div>
-        
 
-        <div class="image">
-          
-          
-          <img src="../../../../../assets/images/cat1.png" alt=" FOTO GATO">
-        </div>
-      </div>
-      <div class="petCadastrado">
-        <div class="text">
-          <h1>LOGAN</h1>
-          <p>Espécie: GATO</p>
-          <p>Raça: SRD</p>
-          <p>Sexo: MACHO</p>
-          <p>Idade: 2 ANOS</p>
-          <p>Descrição: LALALALALA</p>
+          <p>Espécie: {{petDoacao.especie}}</p>
+          <p>Raça: {{petDoacao.raca}}</p>
+          <p>Sexo: {{petDoacao.sexo}}</p>
+          <p>Idade: {{idadePetPelaDataDeNascimento(petDoacao.dataNascimento)}}</p>
+          <p>Descrição: {{petDoacao.descricao}}</p>
         </div>
         <div class="image">
-          <img src="../../../../../assets/images/cat1.png" alt=" FOTO GATO">
+          <!-- <img src={{petDoacao.imagemUrl}} alt="Foto {{petDoacao.nome}}"> -->
+          <img src="../../../../../assets/images/cat1.png" alt="Foto {{petDoacao.nome}}">
         </div>
+
       </div>
     </div>
 
     <div class="lista-interesse" *ngIf="show3">
-      <h1 class="titulo">Lista de Pets que te interessou</h1>
-      <div class="conteudo-interesse">
+      <h1 class="titulo">Lista de Pets que te interessaram</h1>
+      <div class="conteudo-interesse" *ngFor="let petInteressado of this.petsInteressados">
         <div class="box-lista">
           <div class="text">
-            <h1>THOR</h1>
-            <p>Espécie: CACHORRO</p>
-            <p>Raça: SRD</p>
-            <p>Sexo: MACHO</p>
-            <p>Idade: 2 ANOS</p>
-            <p>Descrição: LALALALALA</p>
+            <h1>{{petInteressado.nome}}</h1>
+            <p>Espécie: {{petInteressado.especie}}</p>
+            <p>Raça: {{petInteressado.raca}}</p>
+            <p>Sexo: {{petInteressado.sexo}}</p>
+            <p>Idade: {{idadePetPelaDataDeNascimento(petInteressado.dataNascimento)}}</p>
+            <!-- <p>Idade: {{DetailsComponent.idadePetPelaDataDeNascimento(petInteressado.dataNascimento)}}</p> -->
+            <p>Descrição: {{petInteressado.descricao}}</p>
           </div>
           <div class="image">
-            <img src="../../../../../assets/images/dog1.png" alt=" FOTO GATO">
+            <!-- <img src={{petInteressado.imagemUrl}} alt="Foto {{petInteressado.nome}}"> -->
+            <img src="../../../../../assets/images/cat1.png" alt="Foto {{petInteressado.nome}}">
+          </div>
+          <div class="dados-doador">
+            <i class="bi bi-envelope"></i>
+            <a href="mailto:{{petInteressado.doador.email}}" target="_blank">{{petInteressado.doador.email}}</a> <br>
+            <i class="bi bi-whatsapp"></i>
+            <a href="https://api.whatsapp.com/send?phone={{petInteressado.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+              target="_blank">{{petInteressado.doador.contato}}</a>
           </div>
         </div>
-        <!-- <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:{{petById.doador.email}}"
-                target="_blank">{{petById.doador.email}}</a><br>
-              <i class="bi bi-whatsapp"></i><a
-                href="https://api.whatsapp.com/send?phone={{petById.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
-                target="_blank">{{petById.doador.contato}}</a></div> -->
-        <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:pmiyazaki@deloitte.com"
-            target="_blank">pmiyazaki@deloitte.com</a><br>
-          <i class="bi bi-whatsapp"></i><a
-            href="https://api.whatsapp.com/send?phone=11976167278&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
-            target="_blank">11976167278</a>
-        </div>
-
-      </div>
-      <div class="conteudo-interesse">
-        <div class="box-lista">
-          <div class="text">
-            <h1>THOR</h1>
-            <p>Espécie: CACHORRO</p>
-            <p>Raça: SRD</p>
-            <p>Sexo: MACHO</p>
-            <p>Idade: 2 ANOS</p>
-            <p>Descrição: LALALALALA</p>
-          </div>
-          <div class="image">
-            <img src="../../../../../assets/images/dog1.png" alt=" FOTO GATO">
-          </div>
-        </div>
-        <!-- <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:{{petById.doador.email}}"
-                target="_blank">{{petById.doador.email}}</a><br>
-              <i class="bi bi-whatsapp"></i><a
-                href="https://api.whatsapp.com/send?phone={{petById.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
-                target="_blank">{{petById.doador.contato}}</a></div> -->
-        <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:pmiyazaki@deloitte.com"
-            target="_blank">pmiyazaki@deloitte.com</a><br>
-          <i class="bi bi-whatsapp"></i><a
-            href="https://api.whatsapp.com/send?phone=11976167278&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
-            target="_blank">11976167278</a>
-        </div>
-
       </div>
     </div>
 
 
-  </div>
 
+  </div>
 </div>
 
 <app-footer></app-footer>

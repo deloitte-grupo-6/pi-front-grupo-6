@@ -121,7 +121,7 @@ nav ul li {
   background-color: #a9e4d7;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   text-transform: uppercase;
   font-size: 14px;
   color: rgb(124, 91, 155);
@@ -134,6 +134,7 @@ nav ul li {
 
 h1 {
   font-weight: 800;
+  margin-left: 15px;
 }
 
 .petCadastrado .text {
@@ -148,6 +149,10 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.petCadastrado .titulo h1{
+  margin-bottom: 0;
 }
 
 .image {
@@ -174,9 +179,9 @@ h1 {
   color: rgb(124, 91, 155);
   /* box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
   border-radius: 10px 10px 0 0; */
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   font-weight: bold;
-  margin: 0px;
+  margin: 10px 0;
   width: 100%;
   box-sizing: border-box;
 }
@@ -202,8 +207,12 @@ h1 {
   width: 100%;
   padding-bottom: 15px;
   color: rgb(124, 91, 155);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-radius: 0 0 10px 10px;
+}
+
+.dados-doador a{
+  margin-left: 10px;
 }
 
 h1 {
@@ -217,11 +226,15 @@ h1 {
 }
 
 .botoes-pet {
-  margin-top: 15px;
+  margin-left: 10px;
   top: -100px;
   right: -30px;
 }
 
 .botoes-pet i {
   margin: 10px;
+}
+
+.lista-interesse p{
+  margin: 5px 0 0 0;
 }

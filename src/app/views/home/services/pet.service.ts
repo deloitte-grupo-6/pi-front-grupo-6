@@ -10,6 +10,16 @@ export class PetService {
   constructor(private http: HttpClient) { }
 
   private readonly url = 'https://api-g6.herokuapp.com';
+  // private readonly url = 'http://localhost:8080';
+
+  // token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
+  token = window.sessionStorage.getItem('token');
+  
+
+  refreshToken(){
+    // this.token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
+    this.token = window.sessionStorage.getItem('token');
+  }
 
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.url + '/pets');
@@ -52,6 +62,7 @@ export class PetService {
       imagemUrl,
     };
     let token = window.sessionStorage.getItem('token');
+    // return this.http.post(this.url + '/pets/cadastrar', pet, {headers: {'Authorization': token}});
     return this.http.post(this.url + '/pets/cadastrar', pet, {headers: {'Authorization': token}});
   }
 
@@ -60,8 +71,19 @@ export class PetService {
     return this.http.get<Pet>(this.url + '/pets/id/' + id, { headers: { Authorization: token } });
   }
 
-  addPetToTheList(petId: number, email: string) {
-    let token = window.sessionStorage.getItem('token');
-    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: token } });
+  // //ADICIONANDO À LISTA COM EMAIL - DANDO ERRO
+  // addPetToTheList(petId: number, email: string) {
+  //   let token = window.sessionStorage.getItem('token');
+  //   console.log(token);
+  //   return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: token } });
+  // }
+
+  // ADICIONANDO À LISTA COM ID
+  addPetToTheList(petId: number, id: number) {
+    // let token = window.sessionStorage.getItem('token');
+    this.refreshToken();
+    console.log(this.token);
+    // return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, { headers: { Authorization: token } });
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', {headers: {'Authorization': this.token}} );
   }
 }

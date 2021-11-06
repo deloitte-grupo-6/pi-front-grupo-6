@@ -4,9 +4,12 @@ import {
   AsyncValidatorFn,
   FormBuilder,
   FormControl,
+  FormControlName,
   FormGroup,
+  NgModel,
   Validators,
 } from '@angular/forms';
+import * as moment from 'moment';
 import { Pet } from '../../interfaces/pet';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
@@ -24,15 +27,16 @@ export class MyPageComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  nome = '';
-  email = '';
-  contato = '';
-  documento = '';
-  cidade = '';
+  // nome = '';
+  // email = '';
+  // contato = '';
+  // documento = '';
+  // cidade = '';
   senha = '';
 
   private user: User;
   private petsEmDoacao: Pet[];
+  private petsInteressados: Pet[];
   private id: number;
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {}
@@ -45,7 +49,10 @@ export class MyPageComponent implements OnInit {
         next: (data) => {
           this.user = data;
           this.petsEmDoacao = data.petsEmDoacao;
+          this.petsInteressados = data.petsInteressados;
           console.log(data);
+          console.log(this.petsEmDoacao);
+          console.log(this.petsInteressados);
         },
         error: (err) => console.log(err)
       }
@@ -141,12 +148,14 @@ export class MyPageComponent implements OnInit {
   }
 
   userUpdate(){
+
     let observable = this.userService.updateUser(
-      this.nome,
-      this.email,
-      this.contato,
-      this.documento,
-      this.cidade,
+      this.id,
+      this.user.nome,
+      this.user.email,
+      this.user.contato,
+      this.user.documento,
+      this.user.cidade,
       this.senha
     );
 
@@ -158,5 +167,37 @@ export class MyPageComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  public idadePetPelaDataDeNascimento(dataNascimento: Date): String {
+    let year = moment().diff(dataNascimento, 'years', true);
+    let ano = Math.floor(year);
+    let month = moment().diff(dataNascimento, 'months', true) - ano * 12;
+    let mes = Math.floor(month);
+    if (ano == 0) {
+      if(mes == 1){
+        return mes + ' mês';
+      }
+      return mes + ' meses';
+    }
+    else if (mes == 0){
+      if(ano == 1){
+        return ano + ' ano';
+      } else if(ano == 0){
+        return "Recém nascido";
+      }
+      return ano + ' anos';
+    }
+
+    if(ano == 1 && mes == 1){
+      return ano + ' ano e ' + mes + ' mês';
+    }
+    else if(ano == 1){
+      return ano + ' ano e ' + mes + ' meses';
+    }
+    else if(mes == 1){
+      return ano + ' anos e ' + mes + ' mês';
+    }
+    return ano + ' anos e ' + mes + ' meses';
   }
 }

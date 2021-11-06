@@ -7,6 +7,7 @@ import { User } from '../interfaces/user';
 })
 export class UserService {
   private readonly url = 'https://api-g6.herokuapp.com';
+  // private readonly url = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
@@ -32,9 +33,10 @@ export class UserService {
     return this.http.get<User>(this.url + "/usuarios/buscar/" + id, {headers: {'Authorization': token}});
   }
 
-  updateUser(nome: string, email: string, contato: string, documento: string, cidade: string, senha: string){
-    let id = window.sessionStorage.getItem('id');
+  updateUser(id: number, nome: string, email: string, contato: string, documento: string, cidade: string, senha: string){
+    // let id = window.sessionStorage.getItem('id');
     let user = { id, nome, email, contato, documento, cidade, senha };
+    console.log(user);
     let token = window.sessionStorage.getItem('token');
     return this.http.put(this.url + '/usuarios/atualizar', user, {headers: {'Authorization': token}});
   }
