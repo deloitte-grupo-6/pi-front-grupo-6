@@ -38,26 +38,24 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmitLogin(){
-    console.log("Realizando Login");
-    console.log(this.email + " " + this.senha);
+  onSubmitLogin() {
+    console.log('Realizando Login');
+    console.log(this.email + ' ' + this.senha);
 
     let observable = this.userService.loginUser(this.email, this.senha);
     observable.subscribe(
-      data => {
+      (data) => {
         console.log(data);
-        window.sessionStorage.setItem('id', (<{id:string}>data).id);
-        window.sessionStorage.setItem('email', (<{email:string}>data).email);
-        window.sessionStorage.setItem("token", (<{token:string}>data).token);
+        window.sessionStorage.setItem('id', (<{ id: string }>data).id);
+        window.sessionStorage.setItem('email', (<{ email: string }>data).email);
+        window.sessionStorage.setItem('token', (<{ token: string }>data).token);
         this.hideLogin.emit();
         NavBarComponent.showPetButton.emit();
         NavBarComponent.showMyPageModal.emit();
         NavBarComponent.hideRegisterButton.emit();
       },
-      error => console.log(error)
-    )
-    
-
+      (error) => console.log(error)
+    );
   }
 
   get emailaddress() {
@@ -71,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.hideLogin.emit();
   }
 
-  showRegisterFromLogin(){
+  showRegisterFromLogin() {
     this.hideLogin.emit();
     NavBarComponent.showRegisterModal.emit();
   }

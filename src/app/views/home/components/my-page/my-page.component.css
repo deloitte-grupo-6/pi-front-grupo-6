@@ -1,8 +1,8 @@
 .container {
-  background-color: rgba(226, 224, 231, 0.5);
   height: 100%;
-  width: 100%;
-  display: flex;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 i {
@@ -15,10 +15,11 @@ i {
 nav ul {
   list-style-type: none;
   width: 100%;
+  padding-left: 80px;
 }
 
 nav ul li {
-  margin: 50px 50px 50px 10px;
+  margin: 50px 50px 50px 20px;
 }
 
 .minha-conta,
@@ -116,7 +117,8 @@ nav ul li {
   border: 1px solid green;
 } */
 
-.petCadastrado {
+.petCadastrado,
+.box-lista {
   background-color: rgba(226, 224, 231, 0.5);
   display: flex;
   flex-wrap: wrap;
@@ -128,6 +130,12 @@ nav ul li {
   color: rgb(124, 91, 155);
   font-weight: bold;
   margin: 20px 20px 0px 20px;
+  width: 100%;
+}
+.dados-doador {
+  background-color: rgba(226, 224, 231, 0.5);
+  align-items: center;
+  margin-left: 20px;
   width: 100%;
 }
 
@@ -150,4 +158,9 @@ h1 {
   max-width: 400px;
   height: 100%;
   max-height: 500px;
+}
+
+.titulo {
+  color: rgb(109, 54, 161);
+  font-size: 25px;
 }

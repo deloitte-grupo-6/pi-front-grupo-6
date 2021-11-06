@@ -8,7 +8,7 @@
           <li type="button" (click)="toggle()">Atualizar cadastro</li>
         </div>
         <div class="conta" *ngIf="show">
-          <form (ngSubmit)="onSubmitRegister()" [formGroup]="registerForm">
+          <form [formGroup]="registerForm">
             <label for="text">Nome</label>
             <input class="form-control" type="text" formControlName="nome" id="nome" placeholder="Ex.: Fulano de Tal"
               [(ngModel)]="this.user.nome">
@@ -55,7 +55,7 @@
               placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="this.user.senha">
             <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
               <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
-              <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
+              <small class="error" *ngIf="senhadois.errors?.minlength">*Mínimo de 6 caracteres</small>
 
             </div>
             <div class="buttons">
@@ -67,7 +67,7 @@
 
         <div class="pets">
           <i class="fas fa-paw"></i>
-          <li type="button" (click)="toggle2()">Pets cadastrados</li>
+          <li type="button" (click)="toggle2()"> Pets cadastrados</li>
         </div>
         <div class="meus-pets" *ngIf="show2">
           <!--<div class="petCadastrado" *ngFor="let petDoacao of petsEmDoacao">
@@ -98,10 +98,36 @@
         </div>
         <div class="interesse">
           <i class="fas fa-heart"></i>
-          <li type="button" (click)="toggle3()">Lista de interesses</li>
+          <li type="button" (click)="toggle3()"> Lista de interesses</li>
         </div>
         <div class="lista-interesse" *ngIf="show3">
-          lista de interesses aqui
+          <h1 class="titulo">Lista de Pets que te interessou</h1>
+          <ul>
+            <div class="box-lista">
+              <div class="text">
+                <h1>THOR</h1>
+                <p>Espécie: CACHORRO</p>
+                <p>Raça: SRD</p>
+                <p>Sexo: MACHO</p>
+                <p>Idade: 2 ANOS</p>
+                <p>Descrição: LALALALALA</p>
+              </div>
+              <div class="image">
+                <img src="../../../../../assets/images/dog1.png" alt=" FOTO GATO">
+              </div>
+            </div>
+            <!-- <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:{{petById.doador.email}}"
+              target="_blank">{{petById.doador.email}}</a><br>
+            <i class="bi bi-whatsapp"></i><a
+              href="https://api.whatsapp.com/send?phone={{petById.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+              target="_blank">{{petById.doador.contato}}</a></div> -->
+            <div class="dados-doador"><i class="bi bi-envelope"></i><a href="mailto:pmiyazaki@deloitte.com"
+                target="_blank">pmiyazaki@deloitte.com</a><br>
+              <i class="bi bi-whatsapp"></i><a
+                href="https://api.whatsapp.com/send?phone=11976167278&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+                target="_blank">11976167278</a></div>
+          </ul>
+
         </div>
       </ul>
     </nav>

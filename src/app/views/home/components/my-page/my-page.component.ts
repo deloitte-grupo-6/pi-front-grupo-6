@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidatorFn,
@@ -10,13 +10,14 @@ import {
 import { Pet } from '../../interfaces/pet';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
-
+import { PetService } from '../../services/pet.service';
 @Component({
   selector: 'app-my-page',
   templateUrl: './my-page.component.html',
   styleUrls: ['./my-page.component.css'],
 })
 export class MyPageComponent implements OnInit {
+  @Input() petById: Pet;
   public show: boolean = false;
   public show2: boolean = false;
   public show3: boolean = false;
@@ -32,23 +33,27 @@ export class MyPageComponent implements OnInit {
 
   private user: User;
   private petsEmDoacao: Pet[];
+  petsInteressados: Pet[];
   private id: number;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private petService: PetService
+  ) {}
 
   ngOnInit(): void {
-    this.id = parseInt(window.sessionStorage.getItem("id"));
+    this.id = parseInt(window.sessionStorage.getItem('id'));
     console.log(this.id);
-    this.userService.getUserById(this.id).subscribe(
-      {
-        next: (data) => {
-          this.user = data;
-          this.petsEmDoacao = data.petsEmDoacao;
-          console.log(data);
-        },
-        error: (err) => console.log(err)
-      }
-    )
+    this.userService.getUserById(this.id).subscribe({
+      next: (data) => {
+        this.user = data;
+        this.petsEmDoacao = data.petsEmDoacao;
+        this.petsInteressados = data.petsInteressados;
+        console.log(data);
+      },
+      error: (err) => console.log(err),
+    });
 
     this.registerForm = this.formBuilder.group({
       nome: [
@@ -99,7 +104,6 @@ export class MyPageComponent implements OnInit {
       ],
       senha: ['', [Validators.required, Validators.minLength(6)]],
     });
-
   }
 
   get name() {
@@ -133,7 +137,7 @@ export class MyPageComponent implements OnInit {
     this.show3 = !this.show3;
   }
 
-  userUpdate(){
+  userUpdate() {
     let observable = this.userService.updateUser(
       this.nome,
       this.email,
