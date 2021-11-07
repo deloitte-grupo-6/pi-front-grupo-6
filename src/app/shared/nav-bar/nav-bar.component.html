@@ -4,6 +4,7 @@
       <img src="assets/images/logo-white.png" alt="logo-delove" />
     </a>
     <div class="buttons">
+      
       <button class="btn btn btn-outline-light" type="button" (click)="onPetRegisterClick()" *ngIf="booleanPetRegister">
         Cadastre um Pet
       </button>
@@ -11,9 +12,11 @@
         Cadastre-se
       </button>
       <button class="btn btn btn-outline-light" type="button" (click)="onLoginClick()" *ngIf="booleanLoginButton">Log in</button>
+
       <i class="bi bi-person-circle" type="button" (click)="onMyPageClick()" *ngIf="booleanMyPage" placement="bottom"
         ngbTooltip="Minha página" [routerLink]="['/minhapagina']"></i>
-
+      
+      <i class="bi bi-box-arrow-right" type="button" (click)="logout()" *ngIf="booleanLogoutButton" placement="bottom" ngbTooltip="Logout" [routerLink]="['']"></i>
     </div>
   </div>
 </nav>

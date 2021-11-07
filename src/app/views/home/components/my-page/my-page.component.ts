@@ -10,6 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import * as moment from 'moment';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 import { Pet } from '../../interfaces/pet';
 import { User } from '../../interfaces/user';
 import { PetService } from '../../services/pet.service';
@@ -29,6 +30,12 @@ export class MyPageComponent implements OnInit {
 
   registerForm: FormGroup;
 
+  booleanPetRegister: boolean = false;
+  booleanRegister: boolean = false;
+  booleanLogin: boolean = false;
+  booleanMyPage: boolean = false;
+  booleanLogout: boolean = false;
+
   // nome = '';
   // email = '';
   // contato = '';
@@ -46,11 +53,45 @@ export class MyPageComponent implements OnInit {
 
   constructor(private userService: UserService,
     private formBuilder: FormBuilder,
-    private petService: PetService) {}
+    private petService: PetService) {
+
+      NavBarComponent.showPetRegisterModal.subscribe(
+        () => (this.booleanPetRegister = true)
+      );
+  
+      NavBarComponent.showRegisterModal.subscribe(
+        () => (this.booleanRegister = true)
+      );
+  
+      NavBarComponent.showLoginModal.subscribe(
+        () => (this.booleanLogin = true)
+      );
+  
+      NavBarComponent.showMyPageModal.subscribe(
+        () => (this.booleanMyPage = true)
+      );
+
+      NavBarComponent.showLogoutButton.subscribe(
+        () => (this.booleanLogout = true)
+      )
+      
+    }
 
   ngOnInit(): void {
     this.id = parseInt(window.sessionStorage.getItem("id"));
     console.log(this.id);
+
+    if(typeof window.sessionStorage.getItem('token') == "string"){
+      NavBarComponent.showPetButton.emit();
+      NavBarComponent.showMyPageModal.emit();
+      NavBarComponent.showLogoutButton.emit();
+      NavBarComponent.hideRegisterButton.emit();
+    } else{
+      NavBarComponent.hidePetButton.emit();
+      NavBarComponent.hideMyPageModal.emit();
+      NavBarComponent.hideLogoutButton.emit();
+      NavBarComponent.showRegisterButton.emit();
+    }
 
     this.registerForm = this.formBuilder.group({
       nome: [
@@ -249,6 +290,20 @@ export class MyPageComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  tirarPetLista(idPet: number){
+    let id = parseInt(window.sessionStorage.getItem('id'));
+    let observable = this.petService.removePetToTheList(idPet, id);
+
+    observable.subscribe({
+      next: (data) => {
+        console.log(data);
+        this.petsInteressados = data;
+        alert('O Pet foi excluído da sua lista de interesse');
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   editPet(idPet: number){

@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         this.hideLogin.emit();
         NavBarComponent.showPetButton.emit();
         NavBarComponent.showMyPageModal.emit();
+        NavBarComponent.showLogoutButton.emit();
         NavBarComponent.hideRegisterButton.emit();
       },
       error => console.log(error)

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   booleanDogList: boolean = false;
   booleanCatList: boolean = false;
   booleanOtherList: boolean = false;
+  booleanLogout: boolean = false;
 
   constructor() {
     NavBarComponent.showPetRegisterModal.subscribe(
@@ -25,11 +26,17 @@ export class HomeComponent implements OnInit {
       () => (this.booleanRegister = true)
     );
 
-    NavBarComponent.showLoginModal.subscribe(() => (this.booleanLogin = true));
+    NavBarComponent.showLoginModal.subscribe(
+      () => (this.booleanLogin = true)
+    );
 
     NavBarComponent.showMyPageModal.subscribe(
       () => (this.booleanMyPage = true)
     );
+
+    NavBarComponent.showLogoutButton.subscribe(
+      () => (this.booleanLogout = true)
+    )
 
   }
 
@@ -37,10 +44,12 @@ export class HomeComponent implements OnInit {
     if(typeof window.sessionStorage.getItem('token') == "string"){
       NavBarComponent.showPetButton.emit();
       NavBarComponent.showMyPageModal.emit();
+      NavBarComponent.showLogoutButton.emit();
       NavBarComponent.hideRegisterButton.emit();
     } else{
       NavBarComponent.hidePetButton.emit();
       NavBarComponent.hideMyPageModal.emit();
+      NavBarComponent.hideLogoutButton.emit();
       NavBarComponent.showRegisterButton.emit();
     }
   }
