@@ -42,6 +42,7 @@ export class MyPageComponent implements OnInit {
   private petEdit: Pet;
   private petsInteressados: Pet[];
   private id: number;
+  private url: string;
 
   constructor(private userService: UserService,
     private formBuilder: FormBuilder,
@@ -99,6 +100,21 @@ export class MyPageComponent implements OnInit {
         // this.checkValid
       ],
       senha: ['', [Validators.required, Validators.minLength(6)]],
+      nomePet: ['', [Validators.required, Validators.maxLength(50)]],
+      raca: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+        ],
+      ],
+      especie: ['', Validators.required],
+      sexo: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      // imagemUrl: ['', Validators.required],
+      descricao: [Validators.maxLength(500)],
+   
     });
 
   }
@@ -120,6 +136,27 @@ export class MyPageComponent implements OnInit {
   }
   get senhadois() {
     return this.registerForm.get('senha');
+  }
+  get namePet() {
+    return this.registerForm.get('nomePet');
+  }
+  get breed() {
+    return this.registerForm.get('raca');
+  }
+  get specie() {
+    return this.registerForm.get('especie');
+  }
+  get gender() {
+    return this.registerForm.get('sexo');
+  }
+  get birthdate() {
+    return this.registerForm.get('dataNascimento');
+  }
+  get image() {
+    return this.registerForm.get('imagemUrl');
+  }
+  get description() {
+    return this.registerForm.get('descricao');
   }
 
   toggle() {
@@ -226,6 +263,7 @@ export class MyPageComponent implements OnInit {
       next: (data) => {
         console.log(data);
         this.petEdit = data;
+        this.url = data.imagemUrl;
       }
     })
   }
@@ -236,7 +274,7 @@ export class MyPageComponent implements OnInit {
   }
 
   petUpdate(){
-    let observable = this.petService.updatePet(parseInt(this.petEdit.id), this.petEdit.nome, this.petEdit.especie, this.petEdit.raca, this.petEdit.sexo, this.petEdit.dataNascimento, this.petEdit.descricao, this.petEdit.imagemUrl);
+    let observable = this.petService.updatePet(parseInt(this.petEdit.id), this.petEdit.nome, this.petEdit.especie, this.petEdit.raca, this.petEdit.sexo, this.petEdit.dataNascimento, this.petEdit.descricao, this.url);
 
     observable.subscribe({
       next: (data) => {
@@ -246,6 +284,12 @@ export class MyPageComponent implements OnInit {
       },
       error: (err) => console.log(err)
     })
+  }
+
+  onFileChanges(files) {
+    console.log('Imagem recebida: ', files);
+    this.url = files[0].base64;
+    console.log(this.url);
   }
 
   public idadePetPelaDataDeNascimento(dataNascimento: Date): String {

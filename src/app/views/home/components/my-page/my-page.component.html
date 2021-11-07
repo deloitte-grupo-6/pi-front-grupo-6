@@ -217,14 +217,15 @@
       <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
         <h4>CADASTRO DE PET</h4>
         <label for="nome">Nome</label>
-        <input class="form-control" type="text" formControlName="nome" id="nome" placeholder="Digite o nome do pet"
+        <input class="form-control" type="text" formControlName="nomePet" id="nomePet" placeholder="Digite o nome do pet"
           [(ngModel)]="this.petEdit.nome">
         <div *ngIf="name.invalid && (name.touched || name.dirty)">
           <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
           <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 50 letras</small>
         </div>
         <label for="especie">Especie</label>
-        <select name="Especie" [(ngModel)]="this.petEdit.especie" formControlName="especie">
+        <!-- <select name="Especie" [(ngModel)]="this.petEdit.especie" formControlName="especie"> -->
+          <select name="Especie" [(ngModel)]="this.petEdit.especie" value="this.petEdit.especie" formControlName="especie">
           <option value="CACHORRO">Cachorro</option>
           <option value="GATO">Gato</option>
           <option value="OUTROS">Outros</option>
@@ -262,16 +263,16 @@
           <small class="error" *ngIf="description.errors?.maxlength(500)">*Máximo de 500 caracteres</small>
         </div>
         <div class="image">
-          <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)"
+          <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)" [(ngModel)]="this.petEdit.imagemUrl"
             formControlName="imagemUrl">
-          <img src="{{url}}">
-          <!-- <div *ngIf="image.invalid && (image.touched || image.dirty)">
+          <img src="{{this.url}}">
+          <div *ngIf="image.invalid && (image.touched || image.dirty)">
             <small class="error" *ngIf="image.errors?.required">*Por favor selecione uma foto do pet</small>
-          </div> -->
+          </div>
         </div>
         <div class="buttons">
           <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
-          <button type="button" (click)="petUpdate()" [disabled]="!registerForm.valid">Cadastrar</button>
+          <button type="button" (click)="petUpdate()" [disabled]="!registerForm.valid">Atualizar</button>
         </div>
       </form>
     </div>
