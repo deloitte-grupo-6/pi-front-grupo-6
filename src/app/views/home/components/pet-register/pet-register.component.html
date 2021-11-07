@@ -36,7 +36,7 @@
     </div>
     <label for="nascimento">Nascimento</label>
     <input type="date" formControlName="dataNascimento" id="nascimento" placeholder="Digite a data de nascimento do pet"
-      [(ngModel)]="dataNascimento">
+      [(ngModel)]="dataNascimento" localDate>
     <div *ngIf="birthdate.invalid && (birthdate.touched ||birthdate.dirty)">
       <small class="error" *ngIf="birthdate.errors?.required">*Por favor selecione a data de nascimento do pet</small>
     </div>

@@ -23,6 +23,7 @@ h4 {
   /* background-color: #a2e7d8;  */
   background-color: #a9e4d7;
   padding: 20px 40px;
+  /* padding: 10px 35px; */
   box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
   width: 468px;
   border-radius: 10px;
@@ -37,6 +38,7 @@ h4 {
   font-size: 17px;
   width: 100%;
   padding: 3px;
+  margin:0;
 }
 
 #form-container form input {
@@ -80,7 +82,8 @@ textarea {
 }
 
 textarea {
-  height: 80px;
+  height: 60px;
+  resize: none;
 }
 
 input::-webkit-file-upload-button {
@@ -92,7 +95,7 @@ input::-webkit-file-upload-button {
   height: 30px;
   width: 130px;
   cursor: pointer;
-  margin: 0;
+  margin: 0 5px;
   padding: 0;
 }
 
@@ -121,5 +124,6 @@ input::-webkit-file-upload-button {
 }
 
 img {
-  height: 100px;
+  height: 80px;
+  width: 80px;
 }
