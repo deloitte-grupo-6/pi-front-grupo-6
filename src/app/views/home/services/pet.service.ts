@@ -72,18 +72,17 @@ export class PetService {
     return this.http.get<Pet>(this.url + '/pets/id/' + id, { headers: { Authorization: token } });
   }
 
-  // //ADICIONANDO À LISTA COM EMAIL - DANDO ERRO
-  // addPetToTheList(petId: number, email: string) {
-  //   let token = window.sessionStorage.getItem('token');
-  //   console.log(token);
-  //   return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + email, { headers: { Authorization: token } });
-  // }
-
   // ADICIONANDO À LISTA COM ID
   addPetToTheList(petId: number, id: number) {
     let token = window.sessionStorage.getItem('token');
     console.log(token);
     return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', { headers: { 'Authorization': token } });
+  }
+
+  removePetToTheList(petId: number, id: number){
+    let token = window.sessionStorage.getItem('token');
+    console.log(token);
+    return this.http.put<Pet[]>(this.url + '/usuarios/' + id + '/remover-pet-interessado/' + petId, '', { headers: { 'Authorization': token } })
   }
 
   updatePet(id: number, nome: string, especie: string, raca: string, sexo: string, dataNascimento: Date, descricao: string, imagemUrl: string){

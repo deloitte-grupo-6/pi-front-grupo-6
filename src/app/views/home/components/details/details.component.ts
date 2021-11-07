@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Pet } from '../../interfaces/pet';
 import { PetService } from '../../services/pet.service';
 import * as moment from 'moment';
+import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-details',
@@ -16,12 +17,30 @@ export class DetailsComponent implements OnInit {
   booleanPetRegister: boolean = false;
   booleanRegister: boolean = false;
   booleanLogin: boolean = false;
+  booleanMyPage: boolean = false;
+  booleanDogList: boolean = false;
+  booleanCatList: boolean = false;
+  booleanOtherList: boolean = false;
+  // booleanLogout: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private petService: PetService
-  ) {}
+  ) {
+    NavBarComponent.showPetRegisterModal.subscribe(
+      () => (this.booleanPetRegister = true)
+    );
+
+    NavBarComponent.showRegisterModal.subscribe(
+      () => (this.booleanRegister = true)
+    );
+    NavBarComponent.showLoginModal.subscribe(() => (this.booleanLogin = true));
+
+    NavBarComponent.showMyPageModal.subscribe(
+      () => (this.booleanMyPage = true)
+    );
+  }
 
   id: number;
   petParaIdade: Pet;
@@ -32,6 +51,18 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.id = Number.parseInt(params['id']);
     });
+
+    if(typeof window.sessionStorage.getItem('token') == "string"){
+      NavBarComponent.showPetButton.emit();
+      NavBarComponent.showMyPageModal.emit();
+      NavBarComponent.showLogoutButton.emit();
+      NavBarComponent.hideRegisterButton.emit();
+    } else{
+      NavBarComponent.hidePetButton.emit();
+      NavBarComponent.hideMyPageModal.emit();
+      NavBarComponent.hideLogoutButton.emit();
+      NavBarComponent.showRegisterButton.emit();
+    }
 
     this.petService.getPetById(this.id).subscribe({
       next: (pet) => {
@@ -64,24 +95,12 @@ export class DetailsComponent implements OnInit {
     this.booleanAdoptModal = false;
   }
 
-  modalPetRegister() {
-    this.booleanPetRegister = true;
-  }
-
   cancelModalPetRegister() {
     this.booleanPetRegister = false;
   }
 
-  modalRegister() {
-    this.booleanRegister = true;
-  }
-
   cancelModalRegister() {
     this.booleanRegister = false;
-  }
-
-  modalLogin() {
-    this.booleanLogin = true;
   }
 
   cancelModalLogin() {

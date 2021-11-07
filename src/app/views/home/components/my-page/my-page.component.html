@@ -1,7 +1,5 @@
 <app-nav-bar></app-nav-bar>
-
 <div class="container">
-  
   <div class="sidebar">
     <nav>
       <ul>
@@ -215,7 +213,7 @@
 
     <div class="form-edit-pet" *ngIf="show4">
       <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
-        <h4>CADASTRO DE PET</h4>
+        <h4>ATUALIZAR PET</h4>
         <label for="nome">Nome</label>
         <input class="form-control" type="text" formControlName="nomePet" id="nomePet" placeholder="Digite o nome do pet"
           [(ngModel)]="this.petEdit.nome">

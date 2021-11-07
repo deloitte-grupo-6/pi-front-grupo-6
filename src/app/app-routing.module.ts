@@ -9,7 +9,7 @@ import { LoginComponent } from './views/home/components/login/login.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'detalhes', canActivate: [AuthGuard], component: DetailsComponent },
-  { path: 'minhapagina', component: MyPageComponent },
+  { path: 'minhapagina', canActivate: [AuthGuard], component: MyPageComponent },
   { path: 'login', component: LoginComponent }
 ];
 

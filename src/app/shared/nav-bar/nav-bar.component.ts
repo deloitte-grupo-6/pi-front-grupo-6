@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,13 +16,16 @@ export class NavBarComponent implements OnInit {
   static hideRegisterButton = new EventEmitter();
   static showMyPageModal = new EventEmitter();
   static hideMyPageModal = new EventEmitter();
+  static showLogoutButton = new EventEmitter();
+  static hideLogoutButton = new EventEmitter();
 
   booleanPetRegister: boolean;
   booleanMyPage: boolean;
   booleanRegisterButton: boolean;
   booleanLoginButton: boolean;
+  booleanLogoutButton: boolean = false;
 
-  constructor() {
+  constructor(private router: Router) {
     NavBarComponent.showPetButton.subscribe(
       () => this.booleanPetRegister = true
     )
@@ -46,6 +50,13 @@ export class NavBarComponent implements OnInit {
       () => (this.booleanRegisterButton = false, this.booleanLoginButton = false)
     )
 
+    NavBarComponent.showLogoutButton.subscribe(
+      () => (this.booleanLogoutButton = true)
+    )
+
+    NavBarComponent.hideLogoutButton.subscribe(
+      () => (this.booleanLogoutButton = false)
+    )
 
   }
 
@@ -65,5 +76,15 @@ export class NavBarComponent implements OnInit {
 
   onMyPageClick() {
     NavBarComponent.showMyPageModal.emit();
+  }
+
+  logout(){
+    window.sessionStorage.removeItem('token');
+    window.sessionStorage.removeItem('id');
+    window.sessionStorage.removeItem('email');
+    console.log(this.router.url);
+    if(this.router.url == '/'){
+      window.location.reload();
+    }
   }
 }
