@@ -77,18 +77,23 @@ export class DetailsComponent implements OnInit {
   }
 
   modalAdopt() {
-    this.booleanAdoptModal = true;
-    // this.emailToken = window.sessionStorage.getItem("email");
     this.idInteressado = parseInt(window.sessionStorage.getItem("id"));
     console.log(this.idInteressado);
-    // console.log(this.emailToken);
-    // let observable = this.petService.addPetToTheList(this.id, this.emailToken);
-    let observable = this.petService.addPetToTheList(this.id, this.idInteressado);
+    if(this.petById.doador.id == this.idInteressado){
 
-    observable.subscribe(
-      (data) => console.log(data),
-      (err) => console.log(err)
-    )
+      alert('Você não pode adicionar à sua lista de interessados um Pet que você cadastrou');
+
+    } else{
+
+      this.booleanAdoptModal = true;
+      let observable = this.petService.addPetToTheList(this.id, this.idInteressado);
+      observable.subscribe(
+        (data) => console.log(data),
+        (err) => console.log(err)
+      )
+      
+    }
+
   }
 
   cancelAdoptModal() {
