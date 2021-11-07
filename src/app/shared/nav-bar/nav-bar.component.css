@@ -12,6 +12,11 @@ i {
   font-size: 30px;
 }
 
+img {
+  width: 100%;
+  max-width: 150px;
+}
+
 .xis .tooltip-inner {
   background-color: rgb(78, 38, 116);
 }

@@ -53,9 +53,7 @@
     <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
       <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
       <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
-
     </div>
-
 
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelRegister()">Cancelar</button>

@@ -53,7 +53,7 @@ h4 {
 #form-container form .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 0;
 }
 

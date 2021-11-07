@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     let observable = this.userService.loginUser(this.email, this.senha);
     observable.subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         window.sessionStorage.setItem('id', (<{id:string}>data).id);
         window.sessionStorage.setItem('email', (<{email:string}>data).email);
         window.sessionStorage.setItem("token", (<{token:string}>data).token);
