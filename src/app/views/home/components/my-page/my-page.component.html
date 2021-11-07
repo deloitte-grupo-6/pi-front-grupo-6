@@ -1,0 +1,283 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <div class="minha-conta">
+          <i class="fas fa-user-cog"></i>
+          <li type="button" (click)="toggle()">Atualizar cadastro</li>
+        </div>
+
+        <div class="pets">
+          <i class="fas fa-paw"></i>
+          <li type="button" (click)="toggle2()">Pets cadastrados</li>
+        </div>
+
+        <div class="interesse">
+          <i class="fas fa-heart"></i>
+          <li type="button" (click)="toggle3()">Lista de interesses</li>
+        </div>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="conteudo">
+    <div class="conta" *ngIf="show">
+      <form (ngSubmit)="onSubmitRegister()" [formGroup]="registerForm">
+        <label for="text">Nome</label>
+        <input class="form-control" type="text" formControlName="nome" id="nome" placeholder="Ex.: Fulano de Tal"
+          [(ngModel)]="this.user.nome">
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">
+          <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
+          <small class="error" *ngIf="name.errors?.minlength">*Mínimo de 2 letras</small>
+          <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 100 letras</small>
+        </div>
+        <label for=" text">E-mail</label>
+        <input class="form-control" type="email" formControlName="email" id="email" placeholder="Ex.: fulano@gmail.com"
+          [(ngModel)]="this.user.email">
+        <div *ngIf="emailaddress.invalid && (emailaddress.touched || emailaddress.dirty)">
+          <small class="error" *ngIf="emailaddress.errors?.required">*Email é um campo obrigatório</small>
+          <small class="error" *ngIf="emailaddress.errors?.email">*Por favor informe um email válido</small>
+          <small class="error" *ngIf="emailaddress.errors?.minlength">*Mínimo de 6 letras</small>
+          <small class="error" *ngIf="emailaddress.errors?.maxlength">*Máximo de 50 letras</small>
+        </div>
+        <label for="text">Telefone</label>
+        <input class="form-control" type="tel" formControlName="contato" id="telefone" placeholder="Ex.: (21)99999-9999"
+          [(ngModel)]="this.user.contato">
+        <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
+          <small class="error" *ngIf="contact.errors?.required">*Telefone é um campo obrigatório</small>
+          <small class="error" *ngIf="contact.errors?.minlength">*Mínimo de 12 caracteres</small>
+          <small class="error" *ngIf="contact.errors?.maxlength">*Máximo de 14 caracteres</small>
+        </div>
+        <label for="text">CPF/CNPJ</label>
+        <input class="form-control" type="text" formControlName="documento" id="documento"
+          placeholder="Ex.: 123.456.789-10" [(ngModel)]="this.user.documento">
+        <div *ngIf="document.invalid && (document.touched || document.dirty)">
+          <small class="error" *ngIf="document.errors?.required">*Documento é um campo obrigatório</small>
+          <small class="error" *ngIf="document.errors?.minlength">*Mínimo de 11 caracteres</small>
+          <small class="error" *ngIf="document.errors?.maxlength">*Máximo de 14 caracteres</small>
+        </div>
+        <label for="text">Cidade</label>
+        <input class="form-control" type="text" formControlName="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca"
+          [(ngModel)]="this.user.cidade">
+        <div *ngIf="city.invalid && (city.touched || city.dirty)">
+          <small class="error" *ngIf="city.errors?.required">*Cidade é um campo obrigatório</small>
+          <small class="error" *ngIf="city.errors?.minlength">*Mínimo de 2 caracteres</small>
+          <small class="error" *ngIf="city.errors?.maxlength">*Máximo de 50 caracteres</small>
+        </div>
+        <label for="text">Senha</label>
+        <input class="form-control" type="password" formControlName="senha" name="senha" id="senha"
+          placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="this.senha">
+        <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
+          <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
+          <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
+
+        </div>
+        <div class="buttons">
+          <button type="button" class="link" (click)="toggle()">Cancelar</button>
+          <button type="submit" (click)="userUpdate()" [disabled]="!registerForm.valid">Atualizar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="meus-pets" *ngIf="show2">
+      <div class="petCadastrado" *ngFor="let petDoacao of petsEmDoacao">
+        <div class="header-pet">
+          <div class="titulo">
+            <h1>{{petDoacao.nome}}</h1>
+          </div>
+          <div class="botoes-pet">
+            <!-- <i class="fas fa-trash-alt" type="button" (click)="deletePet(petDoacao.id)" placement="bottom"
+              ngbTooltip="Excluir Pet"></i> -->
+            <i class="far fa-handshake" type="button" (click)="donatePet(petDoacao.id)" placement="bottom"
+              ngbTooltip="Pet doado"></i>
+            <i class="fas fa-edit" type="button" (click)="editPet(petDoacao.id)" placement="bottom" ngbTooltip="Editar Pet"></i>
+          </div>
+        </div>
+        <div class="body-pet">
+          <div class="text">
+            <p>Espécie: {{petDoacao.especie}}</p>
+            <p>Raça: {{petDoacao.raca}}</p>
+            <p>Sexo: {{petDoacao.sexo}}</p>
+            <p>Idade: {{idadePetPelaDataDeNascimento(petDoacao.dataNascimento)}}</p>
+            <p>Descrição: {{petDoacao.descricao}}</p>
+          </div>
+          <div class="image">
+            <img src={{petDoacao.imagemUrl}} alt="Foto {{petDoacao.nome}}">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="petCadastrado">
+        <div class="header-pet">
+          <div class="titulo">
+            <h1>ROMEU</h1>
+          </div>
+          <div class="botoes-pet">
+            <i class="fas fa-trash-alt" type="button" (click)="deletePet(petDoacao.id)" placement="bottom"
+              ngbTooltip="Excluir Pet"></i>
+            <i class="far fa-handshake" type="button" (click)="donatePet(petDoacao.id)" placement="bottom"
+              ngbTooltip="Pet doado"></i>
+            <i class="fas fa-edit" type="button" (click)="editPet(1)" placement="bottom" ngbTooltip="Editar Pet"></i>
+              <i class="fas fa-trash-alt" type="button" (click)="deletePet(1)" placement="bottom"
+              ngbTooltip="Excluir Pet"></i>
+            <i class="far fa-handshake" type="button" (click)="donatePet(1)" placement="bottom"
+              ngbTooltip="Pet doado"></i>
+            <i class="fas fa-edit" type="button" (click)="editPet(1)" placement="bottom" ngbTooltip="Editar Pet"></i>
+          </div>
+        </div>
+        <div class="body-pet">
+          <div class="text">
+            <p>Espécie: CACHORRO</p>
+            <p>Raça: POODLE</p>
+            <p>Sexo: MACHO</p>
+            <p>Idade: 3 ANOS</p>
+            <p>Descrição: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus eum sed vel, sunt esse nam exercitationem cupiditate iusto deleniti adipisci, a possimus sapiente necessitatibus molestias quae porro reprehenderit suscipit veniam?</p>
+          </div>
+          <div class="image">
+            <img src={{petDoacao.imagemUrl}} alt="Foto {{petDoacao.nome}}">
+            <img src="../../../../../assets/images/cat1.png" alt="Foto cachorro">
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="lista-interesse" *ngIf="show3">
+      <h1 class="titulo-principal">Lista de Pets que te interessaram</h1>
+      <div class="conteudo-interesse" *ngFor="let petInteressado of petsInteressados">
+        <div class="header-interesse">
+
+          <div class="titulo">
+            <h1>{{petInteressado.nome}}</h1>
+          </div>
+          <div class="botoes-icones">
+            <i class="fas fa-trash-alt" type="button" (click)="tirarPetLista(petInteressado.id)" placement="bottom"
+              ngbTooltip="Excluir Pet da Lista"></i>
+          </div>
+        </div>
+        <div class="body-interesse">
+          <div class="text">
+            <p>Espécie: {{petInteressado.especie}}</p>
+            <p>Raça: {{petInteressado.raca}}</p>
+            <p>Sexo: {{petInteressado.sexo}}</p>
+            <p>Idade: {{idadePetPelaDataDeNascimento(petInteressado.dataNascimento)}}</p>
+            
+            <p>Descrição: {{petInteressado.descricao}}</p>
+          </div>
+          <div class="image">
+            <img src={{petInteressado.imagemUrl}} alt="Foto {{petInteressado.nome}}">
+            
+          </div>
+        </div>
+        <div class="dados-doador">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:{{petInteressado.doador.email}}" target="_blank">{{petInteressado.doador.email}}</a> <br>
+          <i class="bi bi-whatsapp"></i>
+          <a href="https://api.whatsapp.com/send?phone={{petInteressado.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+            target="_blank">{{petInteressado.doador.contato}}</a>
+        </div>
+      </div>
+      <!-- <div class="conteudo-interesse">
+        <div class="header-interesse">
+
+          <div class="titulo">
+            <h1>LOGAN</h1>
+          </div>
+          <div class="botoes-icones">
+            <i class="fas fa-trash-alt" type="button" (click)="tirarPetLista()" placement="bottom"
+              ngbTooltip="Excluir Pet da Lista"></i>
+          </div>
+        </div>
+        <div class="body-interesse">
+          <div class="text">
+            <p>Espécie: GATO</p>
+            <p>Raça: SRD</p>
+            <p>Sexo: MACHO</p>
+            <p>Idade: 2 ANOS</p>
+            <!-- <p>Idade: {{DetailsComponent.idadePetPelaDataDeNascimento(petInteressado.dataNascimento)}}</p>
+            <p>Descrição: ALGUMA COISA</p>
+          </div>
+          <div class="image">
+            <img src={{petInteressado.imagemUrl}} alt="Foto {{petInteressado.nome}}">
+            <img src="../../../../../assets/images/cat1.png" alt="Foto gato">
+          </div>
+        </div>
+        <div class="dados-doador">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:PMIYAZAKI@DELOITTE.COM" target="_blank">PMIYAZAKI@DELOITTE.COM</a> <br>
+          <i class="bi bi-whatsapp"></i>
+          <a href="https://api.whatsapp.com/send?phone=11946578365&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+            target="_blank">11946578365</a>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="form-edit-pet" *ngIf="show4">
+      <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
+        <h4>CADASTRO DE PET</h4>
+        <label for="nome">Nome</label>
+        <input class="form-control" type="text" formControlName="nomePet" id="nomePet" placeholder="Digite o nome do pet"
+          [(ngModel)]="this.petEdit.nome">
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">
+          <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
+          <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 50 letras</small>
+        </div>
+        <label for="especie">Especie</label>
+        <!-- <select name="Especie" [(ngModel)]="this.petEdit.especie" formControlName="especie"> -->
+          <select name="Especie" [(ngModel)]="this.petEdit.especie" value="this.petEdit.especie" formControlName="especie">
+          <option value="CACHORRO">Cachorro</option>
+          <option value="GATO">Gato</option>
+          <option value="OUTROS">Outros</option>
+        </select>
+        <div *ngIf="specie.invalid && (specie.touched || specie.dirty)">
+          <small class="error" *ngIf="specie.errors?.required">*Por favor selecione uma espécie</small>
+        </div>
+        <label for="raca">Raça</label>
+        <input type="text" formControlName="raca" id="raca" placeholder="Digite a raça do pet" [(ngModel)]="this.petEdit.raca">
+        <div *ngIf="breed.invalid && (breed.touched || breed.dirty)">
+          <small class="error" *ngIf="breed.errors?.required">*Raça é um campo obrigatório</small>
+          <small class="error" *ngIf="breed.errors?.pattern">*Informe somente letras</small>
+          <small class="error" *ngIf="breed.errors?.minlength">*Mínimo de 3 letras</small>
+          <small class="error" *ngIf="breed.errors?.maxlength">*Máximo de 20 letras</small>
+        </div>
+        <label for="sexo">Sexo</label>
+        <select name="Sexo" [(ngModel)]="this.petEdit.sexo" formControlName="sexo">
+          <option value="MACHO">Macho</option>
+          <option value="FEMEA">Fêmea</option>
+          <option value="OUTRO">Outro</option>
+        </select>
+        <div *ngIf="gender.invalid && (gender.touched || gender.dirty)">
+          <small class="error" *ngIf="gender.errors?.required">*Por favor selecione o sexo do pet</small>
+        </div>
+        <label for="nascimento">Nascimento</label>
+        <input type="date" formControlName="dataNascimento" id="nascimento" placeholder="Digite a data de nascimento do pet"
+          [(ngModel)]="this.petEdit.dataNascimento">
+        <div *ngIf="birthdate.invalid && (birthdate.touched ||birthdate.dirty)">
+          <small class="error" *ngIf="birthdate.errors?.required">*Por favor selecione a data de nascimento do pet</small>
+        </div>
+        <label for="descricao">Descrição</label>
+        <textarea type="text" formControlName="descricao" id="descricao" placeholder="Escreva algo sobre o pet"
+          [(ngModel)]="this.petEdit.descricao"></textarea>
+        <div *ngIf="description.invalid && (description.touched || description.dirty)">
+          <small class="error" *ngIf="description.errors?.maxlength(500)">*Máximo de 500 caracteres</small>
+        </div>
+        <div class="image">
+          <input type="file" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)" [(ngModel)]="this.petEdit.imagemUrl"
+            formControlName="imagemUrl">
+          <img src="{{this.url}}">
+          <div *ngIf="image.invalid && (image.touched || image.dirty)">
+            <small class="error" *ngIf="image.errors?.required">*Por favor selecione uma foto do pet</small>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="button" class="link" (click)="onBtnCancelPetRegister()">Cancelar</button>
+          <button type="button" (click)="petUpdate()" [disabled]="!registerForm.valid">Atualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

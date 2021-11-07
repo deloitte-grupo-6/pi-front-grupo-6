@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
@@ -17,11 +18,12 @@ import { DogListComponent } from './views/home/components/dog-list/dog-list.comp
 import { CatListComponent } from './views/home/components/cat-list/cat-list.component';
 import { OtherListComponent } from './views/home/components/other-list/other-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetsListComponent } from './views/home/components/pets-list/pets-list.component';
 import { PetRegisterComponent } from './views/home/components/pet-register/pet-register.component';
 import { DetailsComponent } from './views/home/components/details/details.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { MyPageComponent } from './views/home/components/my-page/my-page.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +43,17 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     OtherListComponent,
     PetRegisterComponent,
     DetailsComponent,
+    MyPageComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, AlifeFileToBase64Module],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
+    AlifeFileToBase64Module,
+    ReactiveFormsModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

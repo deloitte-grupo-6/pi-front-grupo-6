@@ -6,23 +6,64 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  @Output() showRegisterModal = new EventEmitter();
-  @Output() showLoginModal = new EventEmitter();
-  @Output() showPetRegisterModal = new EventEmitter();
+  static showRegisterModal = new EventEmitter();
+  static showLoginModal = new EventEmitter();
+  static showPetRegisterModal = new EventEmitter();
+  static showPetButton = new EventEmitter();
+  static hidePetButton = new EventEmitter();
+  static showRegisterButton = new EventEmitter();
+  static hideRegisterButton = new EventEmitter();
+  static showMyPageModal = new EventEmitter();
+  static hideMyPageModal = new EventEmitter();
 
-  constructor() {}
+  booleanPetRegister: boolean;
+  booleanMyPage: boolean;
+  booleanRegisterButton: boolean;
+  booleanLoginButton: boolean;
+
+  constructor() {
+    NavBarComponent.showPetButton.subscribe(
+      () => this.booleanPetRegister = true
+    )
+
+    NavBarComponent.hidePetButton.subscribe(
+      () => this.booleanPetRegister = false
+    )
+
+    NavBarComponent.showMyPageModal.subscribe(
+      () => (this.booleanMyPage = true)
+    );
+
+    NavBarComponent.hideMyPageModal.subscribe(
+      () => (this.booleanMyPage = false)
+    );
+
+    NavBarComponent.showRegisterButton.subscribe(
+      () => (this.booleanRegisterButton = true, this.booleanLoginButton = true)
+    )
+
+    NavBarComponent.hideRegisterButton.subscribe(
+      () => (this.booleanRegisterButton = false, this.booleanLoginButton = false)
+    )
+
+
+  }
 
   ngOnInit(): void {}
 
   onPetRegisterClick() {
-    this.showPetRegisterModal.emit();
+    NavBarComponent.showPetRegisterModal.emit();
   }
 
   onRegisterClick() {
-    this.showRegisterModal.emit();
+    NavBarComponent.showRegisterModal.emit();
   }
 
   onLoginClick() {
-    this.showLoginModal.emit();
+    NavBarComponent.showLoginModal.emit();
+  }
+
+  onMyPageClick() {
+    NavBarComponent.showMyPageModal.emit();
   }
 }

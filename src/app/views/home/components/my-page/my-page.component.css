@@ -1,0 +1,361 @@
+.container {
+  background-color: rgba(226, 224, 231, 0.5);
+  /* height: 100%; */
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  box-sizing: border-box;
+}
+
+.sidebar{
+  width: 100%;
+  max-width: 300px;
+}
+
+i {
+  font-size: 30px;
+  color: rgb(109, 54, 161);
+  align-items: center;
+  align-self: center;
+}
+
+nav ul {
+  list-style-type: none;
+  width: 100%;
+  padding-left: 80px;
+}
+
+nav ul li {
+  margin: 50px 50px 50px 20px;
+}
+
+.minha-conta,
+.pets,
+.interesse {
+  display: flex;
+  text-align: center;
+  align-items: flex-end;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(109, 54, 161);
+}
+
+.conta,
+.meus-pets,
+.lista-interesse {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.conta {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* transition: opacity 3s linear; */
+  margin: 20px;
+  /* right: 0; */
+}
+
+.error {
+  color: red;
+}
+
+.conta form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 400px;
+  border-radius: 10px;
+  margin-left: 50px;
+}
+
+.conta form label {
+  color: rgb(78, 38, 116);
+  font-size: 17px;
+  width: 100%;
+  padding: 3px;
+  align-self: flex-start;
+}
+
+.conta form input {
+  display: block;
+  width: 100%;
+  background-color: #bfdfd8;
+  border: none;
+  color: rgb(109, 54, 161);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.conta form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.conta form .buttons button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+}
+
+.conteudo{
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.petCadastrado,
+.conteudo-interesse {
+  /* background-color: rgba(226, 224, 231, 0.7); */
+  background-color: #a9e4d7;
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: space-around;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: rgb(124, 91, 155);
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 20px;
+  /* align-items: center; */
+}
+
+h1 {
+  font-weight: 800;
+  /* margin-left: 15px; */
+}
+.botoes-pet i{
+  margin: 10px;
+}
+
+.header-pet,
+.body-pet,
+.header-interesse,
+.body-interesse{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.petCadastrado .text,
+.body-interesse .text {
+  width: 100%;
+  max-width: 300px;
+  text-align: justify;
+  margin-left: 15px;
+  padding: 15px;
+}
+
+.petCadastrado .titulo {
+  /* align-self: flex-start; */
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  padding-left: 30px;
+  align-items: center;
+  padding-top: 15px;
+}
+
+/* .petCadastrado .titulo h1{
+  margin-bottom: 0;
+} */
+
+.botoes-icones {
+  margin-top: 15px;
+}
+
+.botoes-icones i {
+  margin: 10px;
+}
+
+.image {
+  /* display: fixed; */
+  padding: 15px;
+}
+
+.image img {
+  width: 100%;
+  max-width: 200px;
+  /* height: 100%; */
+  /* max-height: 500px; */
+}
+
+.titulo-principal {
+  color: rgb(124, 91, 155);
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.lista-interesse .titulo{
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.dados-doador {
+  background-color: #a9e4d7;
+  align-items: center;
+  margin-left: 0px;
+  width: 100%;
+  padding-bottom: 15px;
+  color: rgb(124, 91, 155);
+  margin-bottom: 20px;
+  border-radius: 0 0 10px 10px;
+  text-transform: lowercase;
+}
+
+.dados-doador a{
+  color: rgb(109, 54, 161);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.dados-doador i{
+  font-size: 20px;
+  padding-right: 6px;
+}
+
+
+
+
+.form-edit-pet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(226, 224, 231, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s linear;
+}
+
+.form-edit-pet h4 {
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
+.form-edit-pet form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 468px;
+  border-radius: 10px;
+}
+
+.form-edit-pet .error {
+  color: red;
+}
+
+.form-edit-pet form label {
+  color: rgb(78, 38, 116);
+  font-size: 17px;
+  width: 100%;
+  padding: 3px;
+}
+
+.form-edit-pet form input {
+  display: block;
+  width: 100%;
+  background-color: #bfdfd8;
+  border: none;
+  color: rgb(109, 54, 161);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-edit-pet form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.form-edit-pet form .buttons button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+}
+
+.form-edit-pet select,
+.form-edit-pet option,
+.form-edit-pet textarea {
+  background-color: #bfdfd8;
+  color: rgb(78, 38, 116);
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  height: 32px;
+}
+
+.form-edit-pet textarea {
+  height: 80px;
+}
+
+.form-edit-pet input::-webkit-file-upload-button {
+  border: 3px solid rgb(78, 38, 116);
+  border-radius: 10px;
+  background-color: rgb(163, 115, 207);
+  color: #fff;
+  font: 14px arial, sans-serif;
+  height: 30px;
+  width: 130px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.form-edit-pet .submit {
+  background: rgb(163, 115, 207);
+  border-radius: 10px;
+  border-style: outset;
+  border: 3px solid rgb(78, 38, 116);
+  height: 30px;
+  width: 130px;
+  font: 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.form-edit-pet .image {
+  display: flex;
+  max-width: 100%;
+  padding: 0;
+}
+
+.form-edit-pet .image input {
+  align-self: center;
+}
+
+.form-edit-pet img {
+  height: 100px;
+}

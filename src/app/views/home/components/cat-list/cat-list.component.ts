@@ -8,8 +8,6 @@ import * as moment from 'moment';
   styleUrls: ['./cat-list.component.css'],
 })
 export class CatListComponent implements OnInit {
-  
-
   @Input() petList: Pet[];
 
   constructor() {}
@@ -17,6 +15,32 @@ export class CatListComponent implements OnInit {
   ngOnInit(): void {}
 
   public idadeGatoPelaDataDeNascimento(dataNascimento: any): String {
-    return moment().diff(dataNascimento, 'years', true).toFixed(0) + ' anos';
+    let year = moment().diff(dataNascimento, 'years', true);
+    let ano = Math.floor(year);
+    let month = moment().diff(dataNascimento, 'months', true) - ano * 12;
+    let mes = Math.floor(month);
+    if (ano == 0) {
+      if(mes == 1){
+        return mes + ' mês';
+      }
+      return mes + ' meses';
+    }
+    else if (mes == 0){
+      if(ano == 1){
+        return ano + ' ano';
+      }
+      return ano + ' anos';
+    }
+
+    if(ano == 1 && mes == 1){
+      return ano + ' ano e ' + mes + ' mês';
+    }
+    else if(ano == 1){
+      return ano + ' ano e ' + mes + ' meses';
+    }
+    else if(mes == 1){
+      return ano + ' anos e ' + mes + ' mês';
+    }
+    return ano + ' anos e ' + mes + ' meses';
   }
 }

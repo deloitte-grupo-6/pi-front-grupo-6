@@ -2,6 +2,7 @@
   background-color: #a9e4d7;
   color: whitesmoke;
   border-radius: 50px;
+  height: 100%;
 }
 
 .card h2 {
@@ -15,21 +16,21 @@
   font-size: 25px;
   color: rgb(124, 91, 155);
   padding: 0 50px 0 50px;
-  text-align: left;
+  text-align: center;
   margin: 5px;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
-.categoria {
+/* .categoria {
   font-size: 30px;
   color: rgb(109, 54, 161);
   padding-top: 100px;
   text-align: center;
-}
+} */
 
 .card img {
-  width: 480px;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   padding: 50px 50px 0px 50px;
   border-radius: 40px;
 }

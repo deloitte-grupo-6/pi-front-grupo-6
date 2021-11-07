@@ -1,33 +1,65 @@
 <div id="form-container">
-  <form #fo="ngForm" (ngSubmit)="onSubmitRegister(fo)">
+  <form (ngSubmit)="onSubmitRegister()" [formGroup]="registerForm">
     <h4>FAÇA PARTE DA FAMÍLIA <b>DELOVE</b></h4>
-    <label for="text">
-      Nome
-      <input type="text" name="nome" id="nome" placeholder="Ex.: Fulano" [(ngModel)]="nome">
-    </label>
-    <label for="text">
-      E-mail
-      <input type="email" name="email" id="email" placeholder="Ex.: fulano@gmail.com" [(ngModel)]="email">
-    </label>
-    <label for="text">
-      Telefone
-      <input type="tel" name="contato" id="telefone" placeholder="Ex.: (21)999999999" [(ngModel)]="contato">
-    </label>
-    <label for="text">
-      CPF/CNPJ
-      <input type="text" name="documento" id="documento" placeholder="Ex.: 123.456.789-10" [(ngModel)]="documento">
-    </label>
-    <label for="text">
-      Cidade
-      <input type="text" name="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca" [(ngModel)]="cidade">
-    </label>
-    <label for="text">
-      Senha
-      <input type="password" name="senha" id="senha" placeholder="Sua senha deve ter entre 6 e 20 dígitos" [(ngModel)]="senha">
-    </label>
+    <label for="text">Nome</label>
+    <input class="form-control" type="text" formControlName="nome" id="nome" placeholder="Ex.: Fulano de Tal"
+      [(ngModel)]="nome">
+    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+      <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
+      <small class="error" *ngIf="name.errors?.minlength">*Mínimo de 2 letras</small>
+      <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 100 letras</small>
+    </div>
+
+    <label for=" text">E-mail</label>
+    <input class="form-control" type="email" formControlName="email" id="email" placeholder="Ex.: fulano@gmail.com"
+      [(ngModel)]="email">
+    <div *ngIf="emailaddress.invalid && (emailaddress.touched || emailaddress.dirty)">
+      <small class="error" *ngIf="emailaddress.errors?.required">*Email é um campo obrigatório</small>
+      <small class="error" *ngIf="emailaddress.errors?.email">*Por favor informe um email válido</small>
+      <small class="error" *ngIf="emailaddress.errors?.minlength">*Mínimo de 6 letras</small>
+      <small class="error" *ngIf="emailaddress.errors?.maxlength">*Máximo de 50 letras</small>
+    </div>
+
+    <label for="text">Telefone</label>
+    <input class="form-control" type="tel" formControlName="contato" id="telefone" placeholder="Ex.: (21)99999-9999"
+      [(ngModel)]="contato">
+    <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
+      <small class="error" *ngIf="contact.errors?.required">*Telefone é um campo obrigatório</small>
+      <small class="error" *ngIf="contact.errors?.minlength">*Mínimo de 12 caracteres</small>
+      <small class="error" *ngIf="contact.errors?.maxlength">*Máximo de 14 caracteres</small>
+    </div>
+
+    <label for="text">CPF/CNPJ</label>
+    <input class="form-control" type="text" formControlName="documento" id="documento" placeholder="Ex.: 123.456.789-10"
+      [(ngModel)]="documento">
+    <div *ngIf="document.invalid && (document.touched || document.dirty)">
+      <small class="error" *ngIf="document.errors?.required">*Documento é um campo obrigatório</small>
+      <small class="error" *ngIf="document.errors?.minlength">*Mínimo de 11 caracteres</small>
+      <small class="error" *ngIf="document.errors?.maxlength">*Máximo de 14 caracteres</small>
+    </div>
+
+    <label for="text">Cidade</label>
+    <input class="form-control" type="text" formControlName="cidade" id="cidade" placeholder="Ex.: Cidade do Nunca"
+      [(ngModel)]="cidade">
+    <div *ngIf="city.invalid && (city.touched || city.dirty)">
+      <small class="error" *ngIf="city.errors?.required">*Cidade é um campo obrigatório</small>
+      <small class="error" *ngIf="city.errors?.minlength">*Mínimo de 2 caracteres</small>
+      <small class="error" *ngIf="city.errors?.maxlength">*Máximo de 50 caracteres</small>
+    </div>
+
+    <label for="text">Senha</label>
+    <input class="form-control" type="password" formControlName="senha" name="senha" id="senha"
+      placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="senha">
+    <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
+      <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
+      <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
+
+    </div>
+
+
     <div class="buttons">
       <button type="button" class="link" (click)="onBtnCancelRegister()">Cancelar</button>
-      <button type="submit" (click)="userRegister()">Criar</button>
+      <button type="submit" (click)="userRegister()" [disabled]="!registerForm.valid">Criar</button>
     </div>
   </form>
 </div>
