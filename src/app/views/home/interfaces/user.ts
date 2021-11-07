@@ -7,6 +7,6 @@ export interface User {
   cidade: string;
   email: string;
   documento: string;
-  petsEmDoacao: Pet[];
-  petsInteressados: Pet[];
+  // petsEmDoacao: Pet[];
+  // petsInteressados: Pet[];
 }

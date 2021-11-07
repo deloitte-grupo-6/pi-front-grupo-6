@@ -35,6 +35,7 @@ export class MyPageComponent implements OnInit {
   senha = '';
 
   private user: User;
+  // PEGAR PELOS ENDPOINTS
   private petsEmDoacao: Pet[];
   private petsInteressados: Pet[];
   private id: number;
@@ -44,19 +45,6 @@ export class MyPageComponent implements OnInit {
   ngOnInit(): void {
     this.id = parseInt(window.sessionStorage.getItem("id"));
     console.log(this.id);
-    this.userService.getUserById(this.id).subscribe(
-      {
-        next: (data) => {
-          this.user = data;
-          this.petsEmDoacao = data.petsEmDoacao;
-          this.petsInteressados = data.petsInteressados;
-          console.log(data);
-          console.log(this.petsEmDoacao);
-          console.log(this.petsInteressados);
-        },
-        error: (err) => console.log(err)
-      }
-    )
 
     this.registerForm = this.formBuilder.group({
       nome: [
@@ -133,18 +121,45 @@ export class MyPageComponent implements OnInit {
     this.show = !this.show;
     this.show2 = false;
     this.show3 = false;
+
+    this.userService.getUserById(this.id).subscribe(
+      {
+        next: (data) => {
+          this.user = data;
+          console.log(data);
+        },
+        error: (err) => console.log(err)
+      }
+    )
   }
 
   toggle2() {
     this.show2 = !this.show2;
     this.show = false;
     this.show3 = false;
+
+    this.userService.getPetsDoacao(this.id).subscribe(
+      {
+        next: (data) => {
+          this.petsEmDoacao = data;
+        },
+        error: (err) => console.log(err)
+      }
+    )
   }
 
   toggle3() {
     this.show3 = !this.show3;
     this.show = false;
     this.show2 = false;
+    this.userService.getPetsInteressados(this.id).subscribe(
+      {
+        next: (data) => {
+          this.petsInteressados = data;
+        },
+        error: (err) => console.log(err)
+      }
+    )
   }
 
   userUpdate(){

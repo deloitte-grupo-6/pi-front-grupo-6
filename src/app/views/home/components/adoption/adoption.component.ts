@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-adoption',
@@ -9,6 +10,9 @@ import { Pet } from '../../interfaces/pet';
 export class AdoptionComponent implements OnInit {
   @Output() hideAdoption = new EventEmitter();
   @Input() petById: Pet;
+
+  // PEGAR O DOADOR PELO ENDPOINT
+  doador: User;
 
   constructor() {}
 

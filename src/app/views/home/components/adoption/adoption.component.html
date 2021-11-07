@@ -2,11 +2,11 @@
   <form>
     <h2>Pet adicionado na lista de interesse</h2>
     <h4> Para mais informações entre contato com o tutor responsável: </h4>
-    <i class="bi bi-envelope"></i><a href="mailto:{{petById.doador.email}}"
-      target="_blank">{{petById.doador.email}}</a><br>
+    <i class="bi bi-envelope"></i><a href="mailto:{{doador.email}}"
+      target="_blank">{{doador.email}}</a><br>
     <i class="bi bi-whatsapp"></i><a
-      href="https://api.whatsapp.com/send?phone={{petById.doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
-      target="_blank">{{petById.doador.contato}}</a>
+      href="https://api.whatsapp.com/send?phone={{doador.contato}}&text=Ol%C3%A1,%20me%20interessei%20pelo%20pet%20postado!%20Como%20fa%C3%A7o%20para%20adotar?"
+      target="_blank">{{doador.contato}}</a>
 
   </form>
   <button type="button" class="btn-close" aria-label="Fechar" (click)="onBtnCancelAdoption()"></button>

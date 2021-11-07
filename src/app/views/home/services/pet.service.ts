@@ -14,9 +14,9 @@ export class PetService {
 
   // token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
   token = window.sessionStorage.getItem('token');
-  
 
-  refreshToken(){
+
+  refreshToken() {
     // this.token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
     this.token = window.sessionStorage.getItem('token');
   }
@@ -63,7 +63,7 @@ export class PetService {
     };
     let token = window.sessionStorage.getItem('token');
     // return this.http.post(this.url + '/pets/cadastrar', pet, {headers: {'Authorization': token}});
-    return this.http.post(this.url + '/pets/cadastrar', pet, {headers: {'Authorization': token}});
+    return this.http.post(this.url + '/pets/cadastrar', pet, { headers: { 'Authorization': token } });
   }
 
   getPetById(id: number): Observable<Pet> {
@@ -84,6 +84,6 @@ export class PetService {
     this.refreshToken();
     console.log(this.token);
     // return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, { headers: { Authorization: token } });
-    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', {headers: {'Authorization': this.token}} );
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', { headers: { 'Authorization': this.token } });
   }
 }

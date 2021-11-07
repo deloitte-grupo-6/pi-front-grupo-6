@@ -3,7 +3,7 @@ import { User } from './user';
 export class Pet {
   id: string;
   nome: string;
-  doador: User;
+  // doador: User;
   especie: string;
   raca: string;
   sexo: string;
