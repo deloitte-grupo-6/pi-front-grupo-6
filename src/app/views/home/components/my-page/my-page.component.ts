@@ -12,6 +12,7 @@ import {
 import * as moment from 'moment';
 import { Pet } from '../../interfaces/pet';
 import { User } from '../../interfaces/user';
+import { PetService } from '../../services/pet.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -24,6 +25,7 @@ export class MyPageComponent implements OnInit {
   public show: boolean = false;
   public show2: boolean = false;
   public show3: boolean = false;
+  public show4: boolean = false;
 
   registerForm: FormGroup;
 
@@ -37,10 +39,13 @@ export class MyPageComponent implements OnInit {
   private user: User;
   // PEGAR PELOS ENDPOINTS
   private petsEmDoacao: Pet[];
+  private petEdit: Pet;
   private petsInteressados: Pet[];
   private id: number;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(private userService: UserService,
+    private formBuilder: FormBuilder,
+    private petService: PetService) {}
 
   ngOnInit(): void {
     this.id = parseInt(window.sessionStorage.getItem("id"));
@@ -121,6 +126,7 @@ export class MyPageComponent implements OnInit {
     this.show = !this.show;
     this.show2 = false;
     this.show3 = false;
+    this.show4 = false;
 
     this.userService.getUserById(this.id).subscribe(
       {
@@ -137,6 +143,7 @@ export class MyPageComponent implements OnInit {
     this.show2 = !this.show2;
     this.show = false;
     this.show3 = false;
+    this.show4 = false;
 
     this.userService.getPetsDoacao(this.id).subscribe(
       {
@@ -152,6 +159,8 @@ export class MyPageComponent implements OnInit {
     this.show3 = !this.show3;
     this.show = false;
     this.show2 = false;
+    this.show4 = false;
+
     this.userService.getPetsInteressados(this.id).subscribe(
       {
         next: (data) => {
@@ -182,6 +191,61 @@ export class MyPageComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  deletePet(idPet: number){
+    let observable = this.petService.deletePetById(idPet);
+    observable.subscribe({
+      next: (data) => {
+        alert('O cadastro do Pet foi excluído');
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
+  donatePet(idPet: number){
+    let observable = this.petService.donatePetById(idPet);
+    observable.subscribe({
+      next: (data) => {
+        console.log(data);
+        alert('Parabéns! Seu Pet foi doado!');
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
+  editPet(idPet: number){
+    this.show3 = false;
+    this.show = false;
+    this.show2 = false;
+    this.show4 = true;
+
+    let observable = this.petService.getPetById(idPet);
+
+    observable.subscribe({
+      next: (data) => {
+        console.log(data);
+        this.petEdit = data;
+      }
+    })
+  }
+
+  onBtnCancelPetRegister(){
+    this.show4 = false;
+    this.show2 = true;
+  }
+
+  petUpdate(){
+    let observable = this.petService.updatePet(parseInt(this.petEdit.id), this.petEdit.nome, this.petEdit.especie, this.petEdit.raca, this.petEdit.sexo, this.petEdit.dataNascimento, this.petEdit.descricao, this.petEdit.imagemUrl);
+
+    observable.subscribe({
+      next: (data) => {
+        console.log(data)
+        this.show4 = false;
+        alert('Seu Pet foi atualizado com sucesso');
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   public idadePetPelaDataDeNascimento(dataNascimento: Date): String {

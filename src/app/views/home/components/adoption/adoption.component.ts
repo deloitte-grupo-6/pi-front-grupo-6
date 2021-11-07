@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pet } from '../../interfaces/pet';
 import { User } from '../../interfaces/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-adoption',
@@ -12,11 +13,11 @@ export class AdoptionComponent implements OnInit {
   @Input() petById: Pet;
 
   // PEGAR O DOADOR PELO ENDPOINT
-  doador: User;
+  // doador: User;
 
-  constructor() {}
+  constructor(private userService:UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onBtnCancelAdoption() {
     this.hideAdoption.emit();

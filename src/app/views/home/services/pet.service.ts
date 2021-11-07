@@ -2,6 +2,7 @@ import { Injectable, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pet } from '../interfaces/pet';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +14,13 @@ export class PetService {
   // private readonly url = 'http://localhost:8080';
 
   // token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
-  token = window.sessionStorage.getItem('token');
 
 
-  refreshToken() {
-    // this.token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
-    this.token = window.sessionStorage.getItem('token');
-  }
+
+  // refreshToken() {
+  //   // this.token = {headers: new HttpHeaders().set('Authorization', window.sessionStorage.getItem('token'))};
+  //   this.token = window.sessionStorage.getItem('token');
+  // }
 
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.url + '/pets');
@@ -80,10 +81,30 @@ export class PetService {
 
   // ADICIONANDO À LISTA COM ID
   addPetToTheList(petId: number, id: number) {
-    // let token = window.sessionStorage.getItem('token');
-    this.refreshToken();
-    console.log(this.token);
-    // return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, { headers: { Authorization: token } });
-    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', { headers: { 'Authorization': this.token } });
+    let token = window.sessionStorage.getItem('token');
+    console.log(token);
+    return this.http.put<Pet>(this.url + "/pets/" + petId + "/interessado/" + id, '', { headers: { 'Authorization': token } });
+  }
+
+  updatePet(id: number, nome: string, especie: string, raca: string, sexo: string, dataNascimento: Date, descricao: string, imagemUrl: string){
+    let token = window.sessionStorage.getItem('token');
+    let idDoador = window.sessionStorage.getItem('id');
+    let doador = { id: idDoador};
+    console.log(token);
+    let pet = {id, nome, doador, especie, raca, sexo, dataNascimento, descricao, imagemUrl,
+    };
+    return this.http.put<Pet>(this.url + '/pets/editar', pet, { headers: { 'Authorization': token } })
+  }
+
+  donatePetById(petId: number){
+    let token = window.sessionStorage.getItem('token');
+    console.log(token);
+    return this.http.put<Pet>(this.url + '/pets/doar/' + petId, '', { headers: { 'Authorization': token } })
+  }
+
+  deletePetById(petId: number){
+    let token = window.sessionStorage.getItem('token');
+    console.log(token);
+    return this.http.delete(this.url + '/pets/deletar/' + petId, { headers: { 'Authorization': token } })
   }
 }

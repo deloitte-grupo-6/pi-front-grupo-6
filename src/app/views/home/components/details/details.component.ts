@@ -42,7 +42,7 @@ export class DetailsComponent implements OnInit {
       error: (err) => console.error(err),
     });
 
-    this.petService.refreshToken();
+    // this.petService.refreshToken();
   }
 
   modalAdopt() {

@@ -23,10 +23,11 @@ i {
 nav ul {
   list-style-type: none;
   width: 100%;
+  padding-left: 80px;
 }
 
 nav ul li {
-  margin: 50px 50px 50px 10px;
+  margin: 50px 50px 50px 20px;
 }
 
 .minha-conta,
@@ -116,12 +117,13 @@ nav ul li {
   box-sizing: border-box;
 }
 
-.petCadastrado {
+.petCadastrado,
+.conteudo-interesse {
   /* background-color: rgba(226, 224, 231, 0.7); */
   background-color: #a9e4d7;
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-around; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: space-around;
   text-transform: uppercase;
   font-size: 14px;
   color: rgb(124, 91, 155);
@@ -134,25 +136,51 @@ nav ul li {
 
 h1 {
   font-weight: 800;
-  margin-left: 15px;
+  /* margin-left: 15px; */
+}
+.botoes-pet i{
+  margin: 10px;
 }
 
-.petCadastrado .text {
+.header-pet,
+.body-pet,
+.header-interesse,
+.body-interesse{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.petCadastrado .text,
+.body-interesse .text {
   width: 100%;
   max-width: 300px;
   text-align: justify;
+  margin-left: 15px;
   padding: 15px;
 }
 
 .petCadastrado .titulo {
   /* align-self: flex-start; */
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  align-items: center; */
+  padding-left: 30px;
   align-items: center;
+  padding-top: 15px;
 }
 
-.petCadastrado .titulo h1{
+/* .petCadastrado .titulo h1{
   margin-bottom: 0;
+} */
+
+.botoes-icones {
+  margin-top: 15px;
+}
+
+.botoes-icones i {
+  margin: 10px;
 }
 
 .image {
@@ -167,37 +195,15 @@ h1 {
   /* max-height: 500px; */
 }
 
-.box-lista {
-  background-color: #a9e4d7;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;
-  text-transform: uppercase;
-  font-size: 18px;
+.titulo-principal {
   color: rgb(124, 91, 155);
-  /* box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
-  border-radius: 10px 10px 0 0; */
-  border-radius: 10px;
-  font-weight: bold;
-  margin: 10px 0;
-  width: 100%;
-  box-sizing: border-box;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
-.box-lista .text {
-  width: 100%;
-  max-width: 300px;
-  text-align: justify;
-  padding: 15px;
-}
-
-.conteudo-interesse {
-  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
-  border-radius: 10px;
-  display: flex;
-  flex-wrap: wrap;
+.lista-interesse .titulo{
+  margin-left: 30px;
+  margin-top: 15px;
 }
 
 .dados-doador {
@@ -207,34 +213,149 @@ h1 {
   width: 100%;
   padding-bottom: 15px;
   color: rgb(124, 91, 155);
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   border-radius: 0 0 10px 10px;
+  text-transform: lowercase;
 }
 
 .dados-doador a{
-  margin-left: 10px;
+  color: rgb(109, 54, 161);
 }
 
 h1 {
   font-weight: 800;
 }
 
-.titulo {
+.dados-doador i{
+  font-size: 20px;
+  padding-right: 6px;
+}
+
+
+
+
+.form-edit-pet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(226, 224, 231, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s linear;
+}
+
+.form-edit-pet h4 {
+  color: rgb(78, 38, 116);
+  align-self: center;
+  text-align: center;
+}
+
+.form-edit-pet form {
+  /* background-color: #a2e7d8;  */
+  background-color: #a9e4d7;
+  padding: 20px 40px;
+  box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
+  width: 468px;
+  border-radius: 10px;
+}
+
+.form-edit-pet .error {
+  color: red;
+}
+
+.form-edit-pet form label {
+  color: rgb(78, 38, 116);
+  font-size: 17px;
+  width: 100%;
+  padding: 3px;
+}
+
+.form-edit-pet form input {
+  display: block;
+  width: 100%;
+  background-color: #bfdfd8;
+  border: none;
   color: rgb(109, 54, 161);
-  font-size: 25px;
-  margin-top: 30px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-.botoes-pet {
-  margin-left: 10px;
-  top: -100px;
-  right: -30px;
+.form-edit-pet form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
-.botoes-pet i {
-  margin: 10px;
+.form-edit-pet form .buttons button {
+  background: rgb(109, 54, 161);
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(78, 38, 116);
+  height: 50px;
+  width: 100px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
 }
 
-.lista-interesse p{
-  margin: 5px 0 0 0;
+.form-edit-pet select,
+.form-edit-pet option,
+.form-edit-pet textarea {
+  background-color: #bfdfd8;
+  color: rgb(78, 38, 116);
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  height: 32px;
+}
+
+.form-edit-pet textarea {
+  height: 80px;
+}
+
+.form-edit-pet input::-webkit-file-upload-button {
+  border: 3px solid rgb(78, 38, 116);
+  border-radius: 10px;
+  background-color: rgb(163, 115, 207);
+  color: #fff;
+  font: 14px arial, sans-serif;
+  height: 30px;
+  width: 130px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.form-edit-pet .submit {
+  background: rgb(163, 115, 207);
+  border-radius: 10px;
+  border-style: outset;
+  border: 3px solid rgb(78, 38, 116);
+  height: 30px;
+  width: 130px;
+  font: 15px arial, sans-serif;
+  text-shadow: none;
+  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.form-edit-pet .image {
+  display: flex;
+  max-width: 100%;
+  padding: 0;
+}
+
+.form-edit-pet .image input {
+  align-self: center;
+}
+
+.form-edit-pet img {
+  height: 100px;
 }
