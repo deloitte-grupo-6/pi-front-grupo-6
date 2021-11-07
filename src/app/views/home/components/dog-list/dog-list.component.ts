@@ -30,6 +30,8 @@ export class DogListComponent implements OnInit {
     else if (mes == 0){
       if(ano == 1){
         return ano + ' ano';
+      } else if(ano == 0){
+        return "Recém nascido";
       }
       return ano + ' anos';
     }

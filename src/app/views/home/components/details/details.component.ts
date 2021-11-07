@@ -26,6 +26,7 @@ export class DetailsComponent implements OnInit {
   id: number;
   petParaIdade: Pet;
   emailToken: string; //******TEMOS QUE PEGAR A PARTIR DO TOKEN*****
+  idInteressado: number;
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -40,11 +41,18 @@ export class DetailsComponent implements OnInit {
       },
       error: (err) => console.error(err),
     });
+
+    // this.petService.refreshToken();
   }
 
   modalAdopt() {
     this.booleanAdoptModal = true;
-    let observable = this.petService.addPetToTheList(this.id, this.emailToken);
+    // this.emailToken = window.sessionStorage.getItem("email");
+    this.idInteressado = parseInt(window.sessionStorage.getItem("id"));
+    console.log(this.idInteressado);
+    // console.log(this.emailToken);
+    // let observable = this.petService.addPetToTheList(this.id, this.emailToken);
+    let observable = this.petService.addPetToTheList(this.id, this.idInteressado);
 
     observable.subscribe(
       (data) => console.log(data),
