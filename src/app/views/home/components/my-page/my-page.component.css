@@ -121,12 +121,8 @@ nav ul li {
 .conteudo-interesse {
   /* background-color: rgba(226, 224, 231, 0.7); */
   background-color: #a9e4d7;
-<<<<<<< HEAD
-
-=======
   /* display: flex;
   flex-wrap: wrap; */
->>>>>>> 67c10a61a261c10722d2558ac078e7645764c162
   justify-content: space-around;
   text-transform: uppercase;
   font-size: 14px;
@@ -137,28 +133,19 @@ nav ul li {
   margin: 20px;
   /* align-items: center; */
 }
-.header-pet,
-.body-pet,
-.header-interesse,
-.body-interesse {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
 
 h1 {
   font-weight: 800;
   /* margin-left: 15px; */
 }
-.botoes-pet i{
+.botoes-pet i {
   margin: 10px;
 }
 
 .header-pet,
 .body-pet,
 .header-interesse,
-.body-interesse{
+.body-interesse {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -197,6 +184,7 @@ h1 {
 }
 
 .image {
+  /* display: fixed; */
   padding: 15px;
 }
 
@@ -213,7 +201,7 @@ h1 {
   margin-top: 20px;
 }
 
-.lista-interesse .titulo{
+.lista-interesse .titulo {
   margin-left: 30px;
   margin-top: 15px;
 }
@@ -230,7 +218,7 @@ h1 {
   text-transform: lowercase;
 }
 
-.dados-doador a{
+.dados-doador a {
   color: rgb(109, 54, 161);
 }
 
@@ -238,13 +226,10 @@ h1 {
   font-weight: 800;
 }
 
-.dados-doador i{
+.dados-doador i {
   font-size: 20px;
   padding-right: 6px;
 }
-
-
-
 
 .form-edit-pet {
   position: fixed;
