@@ -88,9 +88,10 @@ export class PetService {
   updatePet(id: number, nome: string, especie: string, raca: string, sexo: string, dataNascimento: Date, descricao: string, imagemUrl: string){
     let token = window.sessionStorage.getItem('token');
     let idDoador = window.sessionStorage.getItem('id');
+    let disponivel = true;
     let doador = { id: idDoador};
     console.log(token);
-    let pet = {id, nome, doador, especie, raca, sexo, dataNascimento, descricao, imagemUrl,
+    let pet = {id, nome, doador, disponivel, especie, raca, sexo, dataNascimento, descricao, imagemUrl,
     };
     return this.http.put<Pet>(this.url + '/pets/editar', pet, { headers: { 'Authorization': token } })
   }
