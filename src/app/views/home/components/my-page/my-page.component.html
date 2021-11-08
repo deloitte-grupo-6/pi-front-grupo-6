@@ -71,7 +71,7 @@
           placeholder="Sua senha deve ter no mínimo 6 dígitos" [(ngModel)]="this.senha">
         <div *ngIf="senhadois.invalid && (senhadois.touched || senhadois.dirty)">
           <small class="error" *ngIf="senhadois.errors?.required">*Senha é um campo obrigatório</small>
-          <small class="error" *ngIf="password.errors?.minlength">*Mínimo de 6 caracteres</small>
+          <small class="error" *ngIf="senhadois.errors?.minlength">*Mínimo de 6 caracteres</small>
 
         </div>
         <div class="buttons">
@@ -214,12 +214,12 @@
     <div class="form-edit-pet" *ngIf="show4">
       <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
         <h4>ATUALIZAR PET</h4>
-        <label for="nome">Nome</label>
+        <label for="nomePet">Nome</label>
         <input class="form-control" type="text" formControlName="nomePet" id="nomePet" placeholder="Digite o nome do pet"
           [(ngModel)]="this.petEdit.nome">
-        <div *ngIf="name.invalid && (name.touched || name.dirty)">
-          <small class="error" *ngIf="name.errors?.required">*Nome é um campo obrigatório</small>
-          <small class="error" *ngIf="name.errors?.maxlength">*Máximo de 50 letras</small>
+        <div *ngIf="namePet.invalid && (namePet.touched || namePet.dirty)">
+          <small class="error" *ngIf="namePet.errors?.required">*Nome é um campo obrigatório</small>
+          <small class="error" *ngIf="namePet.errors?.maxlength">*Máximo de 50 letras</small>
         </div>
         <label for="especie">Especie</label>
         <!-- <select name="Especie" [(ngModel)]="this.petEdit.especie" formControlName="especie"> -->

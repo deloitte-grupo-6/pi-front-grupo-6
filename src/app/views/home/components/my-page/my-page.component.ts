@@ -292,6 +292,7 @@ export class MyPageComponent implements OnInit {
       next: (data) => {
         console.log(data);
         alert('Parabéns! Seu Pet foi doado!');
+        window.location.reload();
       },
       error: (err) => console.log(err),
     });
