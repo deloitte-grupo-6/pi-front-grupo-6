@@ -35,6 +35,7 @@ export class MyPageComponent implements OnInit {
   booleanLogin: boolean = false;
   booleanMyPage: boolean = false;
   booleanLogout: boolean = false;
+  booleanPetDoado: boolean = false;
 
   // nome = '';
   // email = '';
@@ -247,6 +248,10 @@ export class MyPageComponent implements OnInit {
         error: (err) => console.log(err)
       }
     )
+  }
+
+  cancelModalPetRegister() {
+    this.booleanPetRegister = false;
   }
 
   userUpdate(){
