@@ -152,6 +152,12 @@ h1 {
   /* align-items: center; */
 }
 
+.header-pet .botoes-pet p{
+  color: red;
+  font-size: 20px;
+  margin: 15px;
+}
+
 .petCadastrado .text,
 .body-interesse .text {
   width: 100%;
