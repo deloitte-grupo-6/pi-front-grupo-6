@@ -3,7 +3,7 @@
   background-image: url("../../../../../assets/images/banner2.jpg");
   height: 400px;
   width: auto;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   background-size: cover;
   background-position:left;
   display: flex;

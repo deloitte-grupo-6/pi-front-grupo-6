@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   justify-content:space-around;
   box-sizing: border-box;
+  align-items: center;
 }
 
 .sidebar{
@@ -51,11 +52,9 @@ nav ul li {
 }
 
 .conta {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* transition: opacity 3s linear; */
-  margin: 20px;
+  /* margin: 20px; */
+  margin-left: auto;
+  margin-right: auto;
   /* right: 0; */
 }
 
@@ -68,9 +67,9 @@ nav ul li {
   background-color: #a9e4d7;
   padding: 20px 40px;
   box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.6);
-  width: 400px;
+  max-width: 400px;
   border-radius: 10px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }
 
 .conta form label {

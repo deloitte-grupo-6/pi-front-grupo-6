@@ -212,7 +212,7 @@
     </div>
 
     <div class="form-edit-pet" *ngIf="show4">
-      <form (ngSubmit)="onSubmitRegister" [formGroup]="registerForm">
+      <form (ngSubmit)="onSubmitRegister" [formGroup]="registerFormPet">
         <h4>ATUALIZAR PET</h4>
         <label for="nomePet">Nome</label>
         <input class="form-control" type="text" formControlName="nomePet" id="nomePet" placeholder="Digite o nome do pet"
