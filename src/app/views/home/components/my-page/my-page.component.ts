@@ -29,7 +29,6 @@ export class MyPageComponent implements OnInit {
   public show4: boolean = false;
 
   registerForm: FormGroup;
-  registerFormPet: FormGroup;
 
   booleanPetRegister: boolean = false;
   booleanRegister: boolean = false;
@@ -143,9 +142,6 @@ export class MyPageComponent implements OnInit {
         // this.checkValid
       ],
       senha: ['', [Validators.required, Validators.minLength(6)]],
-    });
-
-    this.registerFormPet = this.formBuilder.group({
       nomePet: ['', [Validators.required, Validators.maxLength(50)]],
       raca: [
         '',
@@ -160,7 +156,8 @@ export class MyPageComponent implements OnInit {
       dataNascimento: ['', Validators.required],
       // imagemUrl: ['', Validators.required],
       descricao: [Validators.maxLength(500)],
-    })
+   
+    });
 
   }
 
